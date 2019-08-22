@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav
+      class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
+      style="z-index:3;width:250px"
+      id="mySidebar"
+    >
+      <div class="fmentors-container fmentors-display-container fmentors-padding-16">
+        <i
+          onclick="fmentors_close()"
+          class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"
+        ></i>
+        <div id="logo">
+          <h1><a href="index.html">Free</a></h1>
+          <span>Mentors</span>
+        </div>
+      </div>
+      <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
+        <a href="index.html" class="fmentors-bar-item fmentors-button fmentors-light-grey">Home</a>
+        <a href="dashboard.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+        <a
+          onclick="navResponsiveFunc()"
+          href="javascript:void(0)"
+          class="fmentors-button fmentors-block fmentors-white fmentors-left-align"
+          id="myBtn"
+        >
+          Mentors <i class="fa fa-caret-down"></i>
+        </a>
+        <div
+          id="navResponsive"
+          class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium"
+        >
+          <a href="mentors.html" class="fmentors-bar-item fmentors-button"
+            ><i class="fa fa-caret-right fmentors-margin-right"></i>Mentors</a
+          >
+          <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+          <a href="req_mentorship.html" class="fmentors-bar-item fmentors-button">Request Mentorship</a>
+        </div>
+        <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
+        <a href="register.html" class="fmentors-bar-item fmentors-button">Register</a>
+      </div>
+      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
+      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
+    </nav>
+    <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
+      <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
+        <div id="logo">
+          <h1><a href="index.html">Free</a></h1>
+          <span>Mentors</span>
+        </div>
+      </div>
+      <a
+        href="javascript:void(0)"
+        class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
+        onclick="fmentors_open()"
+        ><i class="fa fa-bars"></i
+      ></a>
+    </header>
+    <div
+      class="fmentors-overlay fmentors-hide-large"
+      onclick="fmentors_close()"
+      style="cursor:pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+    <div class="fmentors-main" style="margin-left:250px">
+      <!-- Push down content on small screens -->
+      <div class="fmentors-hide-large" style="margin-top:83px"></div>
+
+      <!-- Top header -->
+      <header class="fmentors-container fmentors-xlarge">
+        <p class="fmentors-left">Home</p>
+        <p class="fmentors-right">
+          <a href="login.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-sign-in fmentors-margin-right"> Login </i></a>
+          <a href="register.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-user-plus"> Register </i></a> 
+        </p>
+	  </header>
+	  
+	<banner class="fmentors-display-container fmentors-content fmentors-hide-small" style="max-width:1500px">
+		<img class="fmentors-image" src="images/london2.jpg" alt="London" width="1500" height="700">
+		<div class="fmentors-display-middle" style="width:65%">
+		
+			<div id="Flight" class="fmentors-container fmentors-white fmentors-padding-16 myLink">
+				<h2><center>Get guide In Everything</center></h2>
+				<div class="fmentors-row-padding" style="margin:0 -16px;">
+					<div class="fmentors-half">
+						<label>category</label>
+						<input class="fmentors-input fmentors-border" type="text" placeholder="Category Of mentors">
+					</div>
+					<div class="fmentors-half">
+						<label>Name</label>
+						<input class="fmentors-input fmentors-border" type="text" placeholder="Name of mentor">
+					</div>
+				</div>
+				<p><button class="fmentors-button fmentors-dark-grey">Search Mentor</button></p>
+			</div>
+	
+			</div>
+	</banner>
+	<!-- Services -->
+	<div class="fmentors-container" id="services" style="margin-top:75px">
+		<h1 class="fmentors-xxxlarge fmentors-text-red"><b>Mentors.</b></h1>
+		<hr style="width:50px;border:5px solid red" class="fmentors-round">
+		<p>Guide Someone In Work By Being A Mentor</p>
+		<p>Free Mentors is a platform where mentors and mentees can find each other and connect.
+		
+		To get somewhere in life, business, study, relationships or anything else, it's important to get guidance from a mentor.
+		But finding the right mentor is difficult. Mentspot provides a simple way to get connected with mentors and mentees in
+		any category.
+		
+		The fastest way to get started is by creating a profile right now:
+
+		</p>
+	</div>
+	
+	<!-- Designers -->
+	<!-- <div class="fmentors-container" id="designers" style="margin-top:75px">
+		<h1 class="fmentors-xxxlarge fmentors-text-red"><b>Mentree.</b></h1>
+		<hr style="width:50px;border:5px solid red" class="fmentors-round">
+		<p>The best team in the world.</p>
+		<p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure
+			dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+			cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing
+			elit, sed do eiusmod tempor
+			incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</p>
+		<p><b>Our designers are thoughtfully chosen</b>:</p>
+	</div> -->
+
+	<!-- Team Section -->
+	<div class="fmentors-container" style="padding:128px 16px" id="team">
+		<h3 class="fmentors-center">OUR BEST MENTORS</h3>
+		<!-- <p class="fmentors-center fmentors-large">The ones who runs this company</p> -->
+		<div class="fmentors-row fmentors-grayscale" style="margin-top:64px">
+			<div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+				<div class="fmentors-card">
+					<img src="images/team2.jpg" alt="John" style="width:100%">
+					<div class="fmentors-container">
+						<h3>John Doe</h3>
+						<p class="fmentors-opacity">Life & Personal Development Mentor</p>
+						<p>Thank you for taking a look at my profile. My name is Rhett, I'm a 35-year-old living in New York City (Gramercy). I am
+						a recovery counselor for men
+						</p>
+						<p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i> View Profile</button>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+				<div class="fmentors-card">
+					<img src="images/team1.jpg" alt="Jane" style="width:100%">
+					<div class="fmentors-container">
+						<h3>Anja Austra</h3>
+						<p class="fmentors-opacity">Life & Personal Development Mentor</p>
+						<p>I am all about helping, I want to see people improving their lives and becoming truly themselves. 
+							women, men can reach me out
+						</p>
+						<p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i> View Profile</button>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+				<div class="fmentors-card">
+					<img src="images/team3.jpg" alt="Mike" style="width:100%">
+					<div class="fmentors-container">
+						<h3>Jonathan Andrew</h3>
+						<p class="fmentors-opacity">Life & Personal Development Mentor</p>
+						<p>At age 34, I am the author of 12 books, one of which is a self-help book based on the Law of Attraction entitled Law of
+						Attraction + Action.</p>
+						<p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i> View Profile</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact Section -->
+	<div class="fmentors-container fmentors-padding-large fmentors-grey">
+		<h4 id="contact"><b>Contact Me</b></h4>
+		<div class="fmentors-row-padding fmentors-center fmentors-padding-16" style="margin:0 -24px">
+			<div class="fmentors-half fmentors-dark-grey">
+				<p><i class="fa fa-envelope fmentors-xxlarge fmentors-text-light-grey"></i></p>
+				<p>mail@jajabenit.com</p>
+			</div>
+			<div class="fmentors-third fmentors-teal">
+				<p><i class="fa fa-phone fmentors-xxlarge fmentors-text-light-grey"></i></p>
+				<p>0782979784</p>
+			</div>
+		</div>
+		<hr class="fmentors-opacity">
+		<form action="/action_page.php" target="_blank">
+			<div class="fmentors-section">
+				<label>Name</label>
+				<input class="fmentors-input fmentors-border" type="text" name="Name" required>
+			</div>
+			<div class="fmentors-section">
+				<label>Email</label>
+				<input class="fmentors-input fmentors-border" type="text" name="Email" required>
+			</div>
+			<div class="fmentors-section">
+				<label>Message</label>
+				<input class="fmentors-input fmentors-border" type="text" name="Message" required>
+			</div>
+			<button type="submit" class="fmentors-button fmentors-black fmentors-margin-bottom"><i
+					class="fa fa-paper-plane fmentors-margin-right"></i>Send Message</button>
+		</form>
+	</div>
+
+    </div>
+
+
+
+  <!-- Footer -->
+<footer class="fmentors-center fmentors-black fmentors-padding-16">
+  <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank" class="fmentors-hover-text-green">Free Mentors</a></p>
+</footer>
+
+    <script src="./js/main.js">
+      
+    </script>
+  </body>
+</html>
