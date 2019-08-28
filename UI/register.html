@@ -1,213 +1,133 @@
 <!DOCTYPE html>
 <html class="no-js">
-  <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <nav
-      class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
-      style="z-index:3;width:250px"
-      id="mySidebar"
-    >
-      <div class="fmentors-container fmentors-display-container fmentors-padding-16">
-        <i
-          onclick="fmentors_close()"
-          class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"
-        ></i>
-        <div id="logo">
-          <h1><a href="index.html">Free</a></h1>
-          <span>Mentors</span>
-        </div>
-      </div>
-      <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
-        <a href="index.html" class="fmentors-bar-item fmentors-button">Home</a>
-        <a href="dashboard.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
-        <a
-          onclick="navResponsiveFunc()"
-          href="javascript:void(0)"
-          class="fmentors-button fmentors-block fmentors-white fmentors-left-align"
-          id="myBtn"
-        >
-          Mentors <i class="fa fa-caret-down"></i>
-        </a>
-        <div
-          id="navResponsive"
-          class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium"
-        >
-          <a href="mentors.html" class="fmentors-bar-item fmentors-button"
-            ><i class="fa fa-caret-right fmentors-margin-right"></i>Mentors</a
-          >
-          <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
-          <a href="req_mentorship.html" class="fmentors-bar-item fmentors-button">Request Mentorship</a>
-        </div>
-        <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
-        <a href="register.html" class="fmentors-bar-item fmentors-button fmentors-light-grey">Register</a>
-      </div>
-      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
-      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
-    </nav>
-    <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
-      <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
-        <div id="logo">
-          <h1><a href="index.html">Free</a></h1>
-          <span>Mentors</span>
-        </div>
-      </div>
-      <a
-        href="javascript:void(0)"
-        class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
-        onclick="fmentors_open()"
-        ><i class="fa fa-bars"></i
-      ></a>
-    </header>
-    <div
-      class="fmentors-overlay fmentors-hide-large"
-      onclick="fmentors_close()"
-      style="cursor:pointer"
-      title="close side menu"
-      id="myOverlay"
-    ></div>
-    <div class="fmentors-main" style="margin-left:250px">
-      <!-- Push down content on small screens -->
-      <div class="fmentors-hide-large" style="margin-top:83px"></div>
+<!--<![endif]-->
 
-      <!-- Top header -->
-      <header class="fmentors-container fmentors-xlarge">
-        <p class="fmentors-left">Home</p>
-        <p class="fmentors-right">
-          <a href="login.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-sign-in fmentors-margin-right"> Login </i></a>
-          <a href="register.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-user-plus"> Register </i></a> 
-        </p>
-      </header>
-      <div class="fmentors-container fmentors-blue">
-        <h2>Sign Up</h2>
-      </div>
-      <form class="fmentors-container">
-        <!-- <p>
-                <label>First Name</label>
-                <input class="fmentors-input" type="text"></p> -->
-        <p>
-          <label>First Name</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Last Name</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Birth Date</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Phone</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Address</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Email</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>occupation</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Expertise</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Bio</label>
-          <input class="fmentors-input" type="text" required></p>
-        <p>
-          <label>Password</label>
-          <input class="fmentors-input" type="password" required></p>
-        <p>
-          <label>Confirm Password</label>
-          <input class="fmentors-input" type="password" required></p>
-        <input class="fmentors-check" type="checkbox">
-        <label>I understand and accept <a href="#" target="_blank">Terms &amp; conditions</a></label>
-        <p>
-          <button class="fmentors-btn fmentors-blue">Sign Up</button> <button class="fmentors-btn fmentors-blue">Sign In</button></p>
-      </form>
-      <!-- <div class="signup-content">
-            <div class="signup-form">
-                        <div class="form-content">
-                            <p class="line-on-side"><span>Sign Up</span></p>
-                            <div>   
-                                <form>                                    
-                                    <fieldset class="signup-fieldset">
-                                        <label>First Name</label><span class="important">*</span>
-                                        <input type="text" class="signup-fields" id="first-name" name="first-name" placeholder="First name" value="" required autofocus="">
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset">
-                                            <label>Last Name</label><span class="important">*</span>
-                                            <input type="text" class="signup-fields" id="last-name" name="last-name" placeholder="Last name" value="" required autofocus="">
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset">
-                                            <label>Phone</label><span class="important">*</span>
-                                            <input type="text" class="signup-fields" id="Phone" name="Phone" placeholder="Phone eg +250780000000" value="" required autofocus="">
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset">
-                                            <label>Address</label><span class="important">*</span>
-                                            <input type="text" class="signup-fields" id="address" name="address" placeholder="Address" value="" required autofocus="">
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset">
-                                        <label>Email</label><span class="important">*</span>
-                                        <input type="email" class="signup-fields" id="email" name="email" placeholder="Email" value="" required>
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset">
-                                        <label>Enter Password</label><span class="important">*</span>
-                                        <input type="password" class="signup-fields" id="password" name="password" placeholder="Enter Password" required="">
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset">
-                                        <label>Confirm Password</label><span class="important">*</span>
-                                        <input type="password" class="signup-fields" id="password-confirm" name="password_confirmation" placeholder="Confirm Password" required="">
-                                    </fieldset>
-                                    <fieldset class="signup-fieldset align">                                        
-                                        <input type="checkbox" id="" class="" required="" >
-                                        <label>I understand and accept <a href="#" target="_blank">Terms &amp; conditions</a></label>
-                                    </fieldset>
-                                        
-                                        
-                                    
-                                    <button type="submit" onclick="location.href='signup.html'" class="button-signup large">Register</button>
-                                    
-                                </form>
-                            </div><br>
-                            <p class="line-on-side"><span>Or</span></p>
-                            
-                                    <button type="submit" onclick="location.href='login.html'" class="button-signup large">Login</button>
-                            
-                        </div>
-                    
-            </div>
-        </div> -->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>FM SignUP</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-      <!-- End page content -->
+<body>
+  <nav class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
+    style="z-index:3;width:250px" id="mySidebar">
+    <div class="fmentors-container fmentors-display-container fmentors-padding-16">
+      <i onclick="fmentors_close()"
+        class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"></i>
+      <div id="logo">
+        <h1><a href="index.html">Free</a></h1>
+        <span>Mentors</span>
+      </div>
     </div>
+    <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
+      <a href="index.html" class="fmentors-bar-item fmentors-button">Home</a>
+      <a href="dashboard.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+      <a href="sessions.html" class="fmentors-bar-item fmentors-button">Sessions</a>
+      <a onclick="navResponsiveFunc()" href="javascript:void(0)"
+        class="fmentors-button fmentors-block fmentors-white fmentors-left-align" id="myBtn">
+        Mentors <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="navResponsive" class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium">
+        <a href="mentors.html" class="fmentors-bar-item fmentors-button"><i
+            class="fa fa-caret-right fmentors-margin-right"></i>Mentors</a>
+        <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+      </div>
+      <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
+      <a href="register.html" class="fmentors-bar-item fmentors-button fmentors-light-grey">Register</a>
+    </div>
+    <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
+    <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
+  </nav>
+  <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
+    <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
+      <div id="logo">
+        <h1><a href="index.html">Free</a></h1>
+        <span>Mentors</span>
+      </div>
+    </div>
+    <a href="javascript:void(0)" class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
+      onclick="fmentors_open()"><i class="fa fa-bars"></i></a>
+  </header>
+  <div class="fmentors-overlay fmentors-hide-large" onclick="fmentors_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay"></div>
+  <div class="fmentors-main" style="margin-left:250px">
+    <!-- Push down content on small screens -->
+    <div class="fmentors-hide-large" style="margin-top:83px"></div>
+
+    <header class="fmentors-container fmentors-xlarge">
+      <p class="fmentors-left">Sign Up</p>
+      <p class="fmentors-right">
+        <a href="login.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-sign-in fmentors-margin-right">
+            Login </i></a>
+      </p>
+    </header>
+    <center>
+      <br>
+      <div style="width: 60%">
+        <div class="fmentors-container fmentors-grey">
+          <h2>Sign Up</h2>
+        </div>
+        <form class="fmentors-container">
+          <p>
+            <label>First Name</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Enter First Name"></p>
+          <p>
+            <label>Last Name</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Enter Last Name"></p>
+          <p>
+            <label>Birth Date</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="date" required placeholder="Enter Birth Date"></p>
+          <p>
+            <label>Phone</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Enter Phone Number"></p>
+          <p>
+            <label>Address</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Enter Address"></p>
+          <p>
+            <label>Email</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="email" required placeholder="Enter Email"></p>
+          <p>
+            <label>occupation</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Enter Occupation"></p>
+          <p>
+            <label>Expertise</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Enter Expertise"></p>
+          <p>
+            <label>Bio</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="text" required placeholder="Add about you"></p>
+          <p>
+            <label>Password</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="password" required placeholder="choose your Password"></p>
+          <p>
+            <label>Confirm Password</label><span class="fmentors-text-red">*</span>
+            <input class="fmentors-input" type="password" required placeholder="Add your Password Again"></p>
+          <input class="fmentors-check" type="checkbox">
+          <label>I understand and accept <a href="#" target="_blank">Terms &amp; conditions</a></label>
+          <p>
+            <button class="fmentors-btn fmentors-blue">Sign Up</button> <button class="fmentors-btn fmentors-blue">Sign
+              In</button></p>
+        </form>
+      </div>
+    </center>
+  </div>
 
 
 
   <!-- Footer -->
-<footer class="fmentors-center fmentors-black fmentors-padding-16">
-  <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank" class="fmentors-hover-text-green">Free Mentors</a></p>
-</footer>
+  <footer class="fmentors-center fmentors-black fmentors-padding-16">
+    <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank"
+        class="fmentors-hover-text-green">Free Mentors</a></p>
+  </footer>
 
-    <script src="./js/main.js">
-      
-    </script>
-  </body>
+  <script src="./js/main.js">
+
+  </script>
+</body>
+
 </html>
