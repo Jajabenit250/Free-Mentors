@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mentors List</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav
+      class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
+      style="z-index:3;width:250px"
+      id="mySidebar"
+    >
+      <div class="fmentors-container fmentors-display-container fmentors-padding-16">
+        <i
+          onclick="fmentors_close()"
+          class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"
+        ></i>
+        <div id="logo">
+          <h1><a href="index.html">Free</a></h1>
+          <span>Mentors</span>
+        </div>
+      </div>
+      <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
+        <a href="index.html" class="fmentors-bar-item fmentors-button">Home</a>
+        <a href="dashboard.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+        <a href="sessions.html" class="fmentors-bar-item fmentors-button">Sessions</a>
+        <a onclick="navResponsiveFunc()" href="javascript:void(0)"
+          class="fmentors-button fmentors-block fmentors-white fmentors-left-align fmentors-light-grey" id="myBtn">
+          Mentors <i class="fa fa-caret-down"></i>
+        </a>
+        <div id="navResponsive" class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium">
+          <a href="mentors.html" class="fmentors-bar-item fmentors-button"><i
+              class="fa fa-caret-right fmentors-margin-right"></i>Mentors</a>
+          <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+        </div>
+        <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
+        <a href="register.html" class="fmentors-bar-item fmentors-button">Register</a>
+      </div>
+      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
+      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
+      </nav>
+    <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
+      <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
+        <div id="logo">
+          <h1><a href="index.html">Free</a></h1>
+          <span>Mentors</span>
+        </div>
+      </div>
+      <a
+        href="javascript:void(0)"
+        class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
+        onclick="fmentors_open()"
+        ><i class="fa fa-bars"></i
+      ></a>
+    </header>
+    <div
+      class="fmentors-overlay fmentors-hide-large"
+      onclick="fmentors_close()"
+      style="cursor:pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+    <div class="fmentors-main" style="margin-left:250px">
+      <!-- Push down content on small screens -->
+      <div class="fmentors-hide-large" style="margin-top:83px"></div>
+
+      <!-- Header -->
+      <header id="portfolio">
+        <a href="#"><img src="images/avatar_g2.png" style="width:65px;"
+            class="fmentors-circle fmentors-right fmentors-margin fmentors-hide-large fmentors-hover-opacity"></a>
+        <span class="fmentors-button fmentors-hide-large fmentors-xxlarge fmentors-hover-text-grey" onclick="w3_open()"><i
+            class="fa fa-bars"></i></span>
+        <div class="fmentors-container">
+          <h1><b>Mentors</b></h1>
+          <div class="fmentors-section fmentors-bottombar fmentors-padding-16">
+            <span class="fmentors-margin-right">Filter:</span>
+            <button class="fmentors-button fmentors-black">ALL</button>
+            <button class="fmentors-button fmentors-white"><i class="fmentors-margin-right"></i>Life and development</button>
+            <button class="fmentors-button fmentors-white fmentors-hide-small"><i class="fmentors-margin-right"></i>Business and entrepreneurship</button>
+            <button class="fmentors-button fmentors-white fmentors-hide-small"><i class="fmentors-margin-right"></i>Software Engineering</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="fmentors-row" style="margin-top:64px">
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="John" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Niyonsenga Eric</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>Thank you for taking a look at my profile. My name is Rhett, I'm a 35-year-old living in New York City
+                (Gramercy). I am
+                a recovery counselor for men
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/womanpic.jpg" alt="Jane" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Jane Umwali</h3>
+              <p class="fmentors-opacity">Graphic Designer Mentor</p>
+              <p>I am all about helping, I want to see people improving their lives and becoming truly themselves.
+                women, men can reach me out
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="Mike" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Confiance Iragena</h3>
+              <p class="fmentors-opacity">Web designer mentor</p>
+              <p>At age 34, I am the author of 12 books, one of which is a self-help book based on the Law of Attraction
+                entitled Law of
+                Attraction + Action.</p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="fmentors-row" style="margin-top:64px">
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="John" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Mike Kamanzi</h3>
+              <p class="fmentors-opacity">Web Designer Mentor</p>
+              <p>Thank you for taking a look at my profile. My name is Rhett, I'm a 35-year-old living in New York City
+                (Gramercy). I am
+                a recovery counselor for men
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="Jane" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Iradukunda Camille</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>I am all about helping, I want to see people improving their lives and becoming truly themselves.
+                women, men can reach me out
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="Mike" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Kwitonda Sam</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>At age 34, I am the author of 12 books, one of which is a self-help book based on the Law of Attraction
+                entitled Law of
+                Attraction + Action.</p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fmentors-row" style="margin-top:64px">
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="John" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Jules Bihira</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>Thank you for taking a look at my profile. My name is Rhett, I'm a 35-year-old living in New York City
+                (Gramercy). I am
+                a recovery counselor for men
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/womanpic.jpg" alt="Jane" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Uwamahoro Sonia</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>I am all about helping, I want to see people improving their lives and becoming truly themselves.
+                women, men can reach me out
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="Mike" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Kwihangana Andrew</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>At age 34, I am the author of 12 books, one of which is a self-help book based on the Law of Attraction
+                entitled Law of
+                Attraction + Action.</p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="fmentors-row" style="margin-top:64px">
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="John" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Igiraneza Djabil</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>Thank you for taking a look at my profile. My name is Rhett, I'm a 35-year-old living in New York City
+                (Gramercy). I am
+                a recovery counselor for men
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/womanpic.jpg" alt="Jane" style="width:100%">
+            <div class="fmentors-container">
+              <h3>allyah iradukunda</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>I am all about helping, I want to see people improving their lives and becoming truly themselves.
+                women, men can reach me out
+              </p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="fmentors-col l3 s6 fmentors-container fmentors-margin-bottom">
+          <div class="fmentors-card">
+            <img src="images/manpic.png" alt="Mike" style="width:100%">
+            <div class="fmentors-container">
+              <h3>Irakoze Pacifique</h3>
+              <p class="fmentors-opacity">Life & Personal Development Mentor</p>
+              <p>At age 34, I am the author of 12 books, one of which is a self-help book based on the Law of Attraction
+                entitled Law of
+                Attraction + Action.</p>
+              <p><button class="fmentors-button fmentors-light-grey fmentors-block"><i class="fa fa-envelope"></i><a
+                  href="mentor__profile.html">View Profile</a></button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="fmentors-center fmentors-padding-32">
+        <div class="fmentors-bar">
+          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">«</a>
+          <a href="#" class="fmentors-bar-item fmentors-black fmentors-button">1</a>
+          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">2</a>
+          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">3</a>
+          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">4</a>
+          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">»</a>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+
+
+  <!-- Footer -->
+<footer class="fmentors-center fmentors-black fmentors-padding-16">
+  <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank" class="fmentors-hover-text-green">Free Mentors</a></p>
+</footer>
+
+    <script src="./js/main.js">
+      
+    </script>
+  </body>
+</html>
