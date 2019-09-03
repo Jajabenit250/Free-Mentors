@@ -1,245 +1,184 @@
 <!DOCTYPE html>
 <html class="no-js">
-  <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Admin Dashboard</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <nav
-      class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
-      style="z-index:3;width:250px"
-      id="mySidebar"
-    >
-      <div class="fmentors-container fmentors-display-container fmentors-padding-16">
-        <i
-          onclick="fmentors_close()"
-          class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"
-        ></i>
-        <div id="logo">
-          <h1><a href="index.html">Free</a></h1>
-          <span>Mentors</span>
-        </div>
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Admin Dashboard</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <nav class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
+    style="z-index:3;width:250px" id="mySidebar">
+    <div class="fmentors-container fmentors-display-container fmentors-padding-16">
+      <i onclick="fmentors_close()"
+        class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"></i>
+      <div id="logo">
+        <h1><a href="index.html">Free</a></h1>
+        <span>Mentors</span>
       </div>
-      <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
-        <a href="index.html" class="fmentors-bar-item fmentors-button">Home</a>
-        <a href="dashboard.html" class="fmentors-bar-item fmentors-button fmentors-light-grey">Dashboard</a>
-        <a href="sessions.html" class="fmentors-bar-item fmentors-button">Sessions</a>
-        <a onclick="navResponsiveFunc()" href="javascript:void(0)"
-          class="fmentors-button fmentors-block fmentors-white fmentors-left-align" id="myBtn">
-          Mentors <i class="fa fa-caret-down"></i>
-        </a>
-        <div id="navResponsive" class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium">
-          <a href="mentors.html" class="fmentors-bar-item fmentors-button"><i
-              class="fa fa-caret-right fmentors-margin-right"></i>Mentors</a>
-          <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
-        </div>
-        <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
-        <a href="register.html" class="fmentors-bar-item fmentors-button">Register</a>
+    </div>
+    <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
+      <a href="index.html" class="fmentors-bar-item fmentors-button">Home</a>
+      <a href="dashboard.html" class="fmentors-bar-item fmentors-button fmentors-light-grey">Dashboard</a>
+      <a href="sessions.html" class="fmentors-bar-item fmentors-button">Sessions</a>
+      <a onclick="navResponsiveFunc()" href="javascript:void(0)"
+        class="fmentors-button fmentors-block fmentors-white fmentors-left-align" id="myBtn">
+        Mentors <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="navResponsive" class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium">
+        <a href="mentors.html" class="fmentors-bar-item fmentors-button">All Mentors</a>
+        <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Mentor Dashboard</a>
       </div>
-      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
-      <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
-      </nav>
-    <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
-      <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
-        <div id="logo">
-          <h1><a href="index.html">Free</a></h1>
-          <span>Mentors</span>
-        </div>
+      <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
+      <a href="register.html" class="fmentors-bar-item fmentors-button">Register</a>
+    </div>
+    <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
+    <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
+  </nav>
+  <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
+    <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
+      <div id="logo">
+        <h1><a href="index.html">Free</a></h1>
+        <span>Mentors</span>
       </div>
-      <a
-        href="javascript:void(0)"
-        class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
-        onclick="fmentors_open()"
-        ><i class="fa fa-bars"></i
-      ></a>
+    </div>
+    <a href="javascript:void(0)" class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
+      onclick="fmentors_open()"><i class="fa fa-bars"></i></a>
+  </header>
+  <div class="fmentors-overlay fmentors-hide-large" onclick="fmentors_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay"></div>
+  <div class="fmentors-main" style="margin-left:250px">
+    <!-- Push down content on small screens -->
+    <div class="fmentors-hide-large" style="margin-top:83px"></div>
+
+    <!-- Top header -->
+    <header class="fmentors-container fmentors-xlarge">
+      <p class="fmentors-left">Dashboard || Benit H</p>
+      <p class="fmentors-right">
+        <a href="reviews_checker.html" class="fmentors-bar-item fmentors-button"><i
+            class="fa fmentors-margin-right">Reviews</i></a>
+        <a href="register.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-sign-out"> Logout </i></a>
+      </p>
     </header>
-    <div
-      class="fmentors-overlay fmentors-hide-large"
-      onclick="fmentors_close()"
-      style="cursor:pointer"
-      title="close side menu"
-      id="myOverlay"
-    ></div>
-    <div class="fmentors-main" style="margin-left:250px">
-      <!-- Push down content on small screens -->
-      <div class="fmentors-hide-large" style="margin-top:83px"></div>
+    <div class="fmentors-container fmentors-responsive">
+      <h2>Lists Of Users</h2>
 
-      <!-- Top header -->
-      <header class="fmentors-container fmentors-xlarge">
-        <p class="fmentors-left">Dashboard || Benit H</p>
-        <p class="fmentors-right">
-          <a href="reviews_checker.html" class="fmentors-bar-item fmentors-button"><i class="fa fmentors-margin-right">Reviews</i></a>
-          <a href="register.html" class="fmentors-bar-item fmentors-button"><i class="fa fa-user-plus"> Logout </i></a> 
-        </p>
-      </header>
-      <div class="fmentors-container fmentors-responsive">
-        <h2>Lists Of Mentors</h2>
-      
-        <table class="fmentors-table-all fmentors-hoverable fmentors-card-4">
-          <thead>
-            <tr class="fmentors-light-grey">
-              <th>Mentor Name</th>
-              <th>Occupation</th>
-              <th>Expertise</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>Niyonsenga Eric</td>
-            <td>Analyst at MINICT</td>
-            <td>Life & Personal Development</td>
-            <td>niyoeric@gmail.com</td>
+      <table class="fmentors-table-all fmentors-hoverable fmentors-card-4">
+        <thead>
+          <tr class="fmentors-light-grey">
+            <th>Mentor Name</th>
+            <th>Expertise</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
           </tr>
-          <tr>
-            <td>Uwase Verdique</td>
-            <td>Ceo at Vedshop</td>
-            <td>Business and Entrepreneurship</td>
-            <td>vidsh@gmail.com</td>
-          </tr>
-          <tr>
-            <td>Tuyizere Andre</td>
-            <td>CTO at andela</td>
-            <td>Software Engineering</td>
-            <td>andet@gmail.com</td>
-          </tr>
-        </table>
-      </div>
-      <!-- Pagination -->
-      <div class="fmentors-center fmentors-padding-32">
-        <div class="fmentors-bar">
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">«</a>
-          <a href="#" class="fmentors-bar-item fmentors-black fmentors-button">1</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">2</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">3</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">4</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">»</a>
-        </div>
-      </div>
-
-      <div class="fmentors-container fmentors-responsive">
-        <h2>Lists Of Users</h2>
-      
-        <table class="fmentors-table-all fmentors-hoverable fmentors-card-4">
-          <thead>
-            <tr class="fmentors-light-grey">
-              <th>User Name</th>
-              <th>Occupation</th>
-              <th>Expertise</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>Havugimana Benit</td>
-            <td>Student</td>
-            <td>Life & Personal Development</td>
-            <td>jajabenit@gmail.com</td>
-          </tr>
-          <tr>
-            <td>Ndikumana Dieu Merci</td>
-            <td>Footballer</td>
-            <td>Business and Entrepreneurship</td>
-            <td>ndikupat@gmail.com</td>
-          </tr>
-          <tr>
-            <td>Uwizeye Emma</td>
-            <td>Model</td>
-            <td>Software Engineering</td>
-            <td>emma@gmail.com</td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- Pagination -->
-      <div class="fmentors-center fmentors-padding-32">
-        <div class="fmentors-bar">
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">«</a>
-          <a href="#" class="fmentors-bar-item fmentors-black fmentors-button">1</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">2</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">3</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">4</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">»</a>
-        </div>
-      </div>
-
-      <div class="fmentors-container fmentors-responsive">
-        <h2>Users Who need to be Mentors</h2>
-      
-        <table class="fmentors-table-all fmentors-hoverable fmentors-card-4">
-          <thead>
-            <tr class="fmentors-light-grey">
-              <th>User Name</th>
-              <th>Email</th>
-              <th>Reason</th>
-              <th>Decision</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>Uwimana Jean Luc</td>
-            <td>Uwijean@gmail.com</td>
-            <td>I want to enspire</td>
-            <td><button class="fmentors-button fmentors-green">Accept</button>
-            <button class="fmentors-button fmentors-red">Decline</button></td>
-          </tr>
-          <tr>
-            <td>Mukeshimana Issabela</td>
-            <td>issabele@gmail.com</td>
-            <td>My time to mentor</td>
-            <td><button class="fmentors-button fmentors-green">Accept</button>
-            <button class="fmentors-button fmentors-red">Decline</button></td>
-          </tr>
-          <tr>
-            <td>Rutunda Albert</td>
-            <td>rutu@gmail.com</td>
-            <td>time is now</td>
-            <td><button class="fmentors-button fmentors-green">Accept</button>
-            <button class="fmentors-button fmentors-red">Decline</button></td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- Pagination -->
-      <div class="fmentors-center fmentors-padding-32">
-        <div class="fmentors-bar">
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">«</a>
-          <a href="#" class="fmentors-bar-item fmentors-black fmentors-button">1</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">2</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">3</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">4</a>
-          <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">»</a>
-        </div>
-      </div>
-
-
-
-      <!-- End page content -->
+        </thead>
+        <tr>
+          <td>Niyonsenga Eric</td>
+          <td>Life & Personal Development</td>
+          <td>niyoeric@gmail.com</td>
+          <td>Mentor</td>
+          <td>Accepted</td>
+        </tr>
+        <tr>
+          <td>Uwase Verdique</td>
+          <td>Business and Entrepreneurship</td>
+          <td>vidsh@gmail.com</td>
+          <td>Mentor</td>
+          <td>Accepted</td>
+        </tr>
+        <tr>
+          <td>Tuyizere Andre</td>
+          <td>Software Engineering</td>
+          <td>andet@gmail.com</td>
+          <td>Mentor</td>
+          <td>Accepted</td>
+        </tr>
+        <tr>
+          <td>Havugimana Benit</td>
+          <td>Life & Personal Development</td>
+          <td>jajabenit@gmail.com</td>
+          <td>Mentree</td>
+          <td>Rejected</td>
+        </tr>
+        <tr>
+          <td>Ndikumana Dieu Merci</td>
+          <td>Business and Entrepreneurship</td>
+          <td>ndikupat@gmail.com</td>
+          <td>Mentree</td>
+          <td><button class="fmentors-button-dashboard fmentors-green">Accept</button>
+            <button class="fmentors-button-dashboard fmentors-red">Decline</button></td>
+        </tr>
+        <tr>
+          <td>Uwizeye Emma</td>
+          <td>Software Engineering</td>
+          <td>emma@gmail.com</td>
+          <td>Mentree</td>
+          <td><button class="fmentors-button-dashboard fmentors-green">Accept</button>
+            <button class="fmentors-button-dashboard fmentors-red">Decline</button></td>
+        </tr>
+        <tr>
+          <td>Uwimana Jean Luc</td>
+          <td>Graphic Design</td>
+          <td>rutu@gmail.com</td>
+          <td>Mentree</td>
+          <td><button class="fmentors-button-dashboard fmentors-green">Accept</button>
+            <button class="fmentors-button-dashboard fmentors-red">Decline</button></td>
+        </tr>
+        <tr>
+          <td>Mukeshimana Issabela</td>
+          <td>Web Design</td>
+          <td>rutu@gmail.com</td>
+          <td>Mentree</td>
+          <td>No Request</td>
+        </tr>
+        <tr>
+          <td>Rutunda Albert</td>
+          <td>Graphic Design</td>
+          <td>rutu@gmail.com</td>
+          <td>Mentree</td>
+          <td><button class="fmentors-button-dashboard fmentors-green">Accept</button>
+            <button class="fmentors-button-dashboard fmentors-red">Decline</button></td>
+        </tr>
+      </table>
     </div>
 
+    <!-- Pagination -->
+    <div class="fmentors-center fmentors-padding-32">
+      <div class="fmentors-bar">
+        <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">«</a>
+        <a href="#" class="fmentors-bar-item fmentors-black fmentors-button">1</a>
+        <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">2</a>
+        <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">3</a>
+        <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">4</a>
+        <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">»</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="fmentors-center fmentors-black fmentors-padding-16">
+      <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank"
+          class="fmentors-hover-text-green">Free Mentors</a></p>
+    </footer>
 
 
-  <!-- Footer -->
-<footer class="fmentors-center fmentors-black fmentors-padding-16">
-  <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank" class="fmentors-hover-text-green">Free Mentors</a></p>
-</footer>
+    <!-- End page content -->
+  </div>
 
-    <script src="./js/main.js">
-      
-    </script>
-  </body>
+
+
+
+  <script src="./js/main.js">
+
+  </script>
+</body>
+
 </html>
