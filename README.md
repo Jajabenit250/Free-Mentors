@@ -67,7 +67,6 @@ $ npm lint
 | POST        | `/signup` | `False`       | Create a New User     |
 | POST        | `/signin` | `False`       | Authenticate The User |
 
-
 ### USER End POINT
 
 | HTTP METHOD | END POINT   | AUTHENTICATED | DESCRIPTION           |
