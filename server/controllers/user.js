@@ -15,7 +15,7 @@ const signUpUser = async (req, res) => {
     return response.response(
       res,
       422,
-      { status: 422 },
+      422,
       `${error.details[0].message}`,
       true
     );
@@ -27,7 +27,7 @@ const signUpUser = async (req, res) => {
     return response.response(
       res,
       401,
-      { status: 401 },
+      401,
       'User with that email already registered',
       true
     );
@@ -66,7 +66,7 @@ const signUpUser = async (req, res) => {
     models.users.push(addUser);
     const hidepasscode = { ...addUser };
     delete hidepasscode.password;
-    response.response(res, 201, { status: 201 }, hidepasscode, false);
+    response.response(res, 201, 201, hidepasscode, false);
   }
 };
 
