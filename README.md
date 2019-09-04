@@ -1,6 +1,6 @@
 # Free-Mentors
 
-[![Build Status](https://travis-ci.com/Jajabenit250/Free-Mentors.svg?branch=develop)](https://travis-ci.com/Jajabenit250/Free-Mentors) [![Coverage Status](https://coveralls.io/repos/github/Jajabenit250/Free-Mentors/badge.svg)](https://coveralls.io/github/Jajabenit250/Free-Mentors) [![Maintainability](https://api.codeclimate.com/v1/badges/a21e985fef9bc8e46e93/maintainability)](https://codeclimate.com/github/Jajabenit250/Free-Mentors/maintainability)
+[![Build Status](https://travis-ci.com/Jajabenit250/Free-Mentors.svg?branch=develop)](https://travis-ci.com/Jajabenit250/Free-Mentors) [![Coverage Status](https://coveralls.io/repos/github/Jajabenit250/Free-Mentors/badge.svg?branch=develop)](https://coveralls.io/github/Jajabenit250/Free-Mentors?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/a21e985fef9bc8e46e93/maintainability)](https://codeclimate.com/github/Jajabenit250/Free-Mentors/maintainability)
 
 Free Mentors is a platform where people (Mentree) to request free mentorship with mentors.
 
