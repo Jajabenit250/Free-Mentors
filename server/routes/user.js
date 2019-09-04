@@ -3,9 +3,7 @@ import user from '../controllers/user';
 const router = Router();
 
 router.post('/auth/signup', user.signUpUser);
-router.post('/auth/signin', (req, res) => {
-  return res.send('Users can sign in.');
-});
+router.post('/auth/signin', user.signInUser);
 router.patch('/user/:id', (req, res) => {
   return res.send('Admin can change a user to a mentor');
 });

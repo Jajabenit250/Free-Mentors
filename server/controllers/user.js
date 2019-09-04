@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import _ from 'lodash';
 import validate from '../middlewares/signupValidator';
+import signinValidator from '../middlewares/signinValidator';
 import models from '../models';
 import express from 'express';
 import response from '../helpers/response';
@@ -69,7 +70,47 @@ const signUpUser = async (req, res) => {
     response.response(res, 201, 201, hidepasscode, false);
   }
 };
+const signInUser = async (req, res) => {
+  const { password } = req.body;
+  // ###validate userlogin
+  const { error } = signinValidator(req.body);
+  if (error)
+    return response.response(
+      res,
+      422,
+      422,
+      `${error.details[0].message}`,
+      true
+    );
+
+  const user = await models.users.filter(
+    user => user.email.toLowerCase() === req.body.email.toLowerCase()
+  );
+  if (user.length > 0) {
+    if (bcrypt.compareSync(password, user[0].password)) {
+      const token = jwt.sign(
+        { id: user[0].id, isAdmin: user[0].isAdmin },
+        process.env.JWT
+      );
+      {
+        const responses = {
+          firstname: user[0].firstName,
+          lastname: user[0].lastName,
+          email: user[0].email,
+          token
+        };
+
+        return response.response(res, 200, 200, {token: responses.token}, false);
+      }
+    } else {
+      return response.response(res, 401, 401, 'Invalid password', true);
+    }
+  } else {
+    return response.response(res, 401, 401, 'Invalid user or password', true);
+  }
+};
 
 export default {
-  signUpUser
+  signUpUser,
+  signInUser
 };

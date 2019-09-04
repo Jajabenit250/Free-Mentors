@@ -135,3 +135,103 @@ describe('POST /', () => {
       });
   });
 });
+
+// test for Sign In
+
+describe('POST /', () => {
+  it('it should return 401 for Invalid user or password', done => {
+    const user = {
+      email: 'benith@gmail.com',
+      password: '12345678six'
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(401);
+        done();
+      });
+  });
+
+  it('it should return 401 for Invalid user or password', done => {
+    const user = {
+      email: 'user8@gmail.com',
+      password: '12345six'
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(401);
+        done();
+      });
+  });
+
+  it('it should return 401 for Invalid user or password', done => {
+    const user = {
+      email: 'user8@gmail.com',
+      password: '123456six'
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(401);
+        done();
+      });
+  });
+
+  it('it should return 200 if the username match with the password', done => {
+    const user = {
+      email: 'newuser@gmail.com',
+      password: '12345six'
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        done();
+      });
+  });
+
+  it(' it should return 422 for invalid email and password', done => {
+    const user = {
+      email: '',
+      password: ''
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        done();
+      });
+  });
+
+  it('it should return 422 for invalid email ', done => {
+    const user = {
+      email: '',
+      password: '3456six'
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        done();
+      });
+  });
+});
