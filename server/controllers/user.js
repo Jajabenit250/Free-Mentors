@@ -26,7 +26,7 @@ const signUpUser = async (req, res) => {
   if (user.length > 0) {
     return response.response(
       res,
-      409,
+      401,
       'error',
       'User with that email already registered',
       true
@@ -58,7 +58,7 @@ const signUpUser = async (req, res) => {
       bio: bio,
       address: address.toUpperCase(),
       role: 'mentree',
-      is_admin: false
+      isAdmin: false
     };
     const salt = await bcrypt.genSalt(10);
     addUser.password = await bcrypt.hash(addUser.password, salt);

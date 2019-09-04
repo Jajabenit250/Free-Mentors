@@ -12,7 +12,7 @@ const users = [
     phoneNumber: ' +250782314242',
     address: 'UMUSAVE',
     role: 'mentor',
-    is_admin: false
+    isAdmin: false
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const users = [
     phoneNumber: '+250789769787',
     address: 'TORONTO',
     role: 'mentree',
-    is_admin: false
+    isAdmin: false
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const users = [
     phoneNumber: ' +250782314242',
     address: 'GACYAMO',
     role: 'mentree',
-    is_admin: false
+    isAdmin: false
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const users = [
     phoneNumber: ' +250782314242',
     address: 'RUTURUSU',
     role: 'mentree',
-    is_admin: false
+    isAdmin: false
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ const users = [
     phoneNumber: ' +250782314242',
     address: 'RUTURUSU',
     role: 'mentor',
-    is_admin: false
+    isAdmin: false
   }
 ];
 
