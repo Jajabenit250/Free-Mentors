@@ -80,7 +80,7 @@ describe('POST /', () => {
       .post('/api/v1/auth/signup')
       .send(user)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(409);
+        expect(res.statusCode).to.equal(401);
         done();
       });
   });
