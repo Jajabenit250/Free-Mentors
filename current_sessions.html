@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mentorship Sessions</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <nav class="fmentors-sidebar fmentors-bar-block fmentors-white fmentors-collapse fmentors-top"
+        style="z-index:3;width:250px" id="mySidebar">
+        <div class="fmentors-container fmentors-display-container fmentors-padding-16">
+            <i onclick="fmentors_close()"
+                class="fa fa-remove fmentors-hide-large fmentors-button fmentors-display-topright"></i>
+            <div id="logo">
+                <h1><a href="index.html">Free</a></h1>
+                <span>Mentors</span>
+            </div>
+        </div>
+        <div class="fmentors-padding-64 fmentors-large fmentors-text-grey" style="font-weight:bold">
+            <a href="index.html" class="fmentors-bar-item fmentors-button">Home</a>
+            <a href="dashboard.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+            <a href="sessions.html" class="fmentors-bar-item fmentors-button fmentors-light-grey">Sessions</a>
+            <a onclick="navResponsiveFunc()" href="javascript:void(0)"
+                class="fmentors-button fmentors-block fmentors-white fmentors-left-align" id="myBtn">
+                Mentors <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="navResponsive" class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium">
+                <a href="mentors.html" class="fmentors-bar-item fmentors-button">All Mentors</a>
+                <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Mentor Dashboard</a>
+            </div>
+            <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
+            <a href="register.html" class="fmentors-bar-item fmentors-button">Register</a>
+        </div>
+        <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">Contact</a>
+        <a href="#footer" class="fmentors-bar-item fmentors-button fmentors-padding">About Us</a>
+    </nav>
+    <header class="fmentors-bar fmentors-top fmentors-hide-large fmentors-black fmentors-xlarge">
+        <div class="fmentors-bar-item fmentors-padding-24 fmentors-wide">
+            <div id="logo">
+                <h1><a href="index.html">Free</a></h1>
+                <span>Mentors</span>
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="fmentors-bar-item fmentors-button fmentors-padding-24 fmentors-right"
+            onclick="fmentors_open()"><i class="fa fa-bars"></i></a>
+    </header>
+    <div class="fmentors-overlay fmentors-hide-large" onclick="fmentors_close()" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+    <div class="fmentors-main" style="margin-left:250px">
+        <!-- Push down content on small screens -->
+        <div class="fmentors-hide-large" style="margin-top:83px"></div>
+
+        <!-- Top header -->
+        <header class="fmentors-container fmentors-xlarge">
+            <p class="fmentors-left">My Mentors</p>
+            <p class="fmentors-right">
+                <a href="current_sessions.html" class="fmentors-bar-item fmentors-button"><i class="fa fmentors-margin-right">
+                        Current Mentors </i></a>
+                <a href="sessions.html" class="fmentors-bar-item fmentors-button"><i class="fa"> Mentors Request Sent </i></a>
+                <a href="past_sessions.html" class="fmentors-bar-item fmentors-button"><i class="fa"> Past Mentors </i></a>
+            </p>
+        </header>
+        <div id="currrent" class="fmentors-container">
+            <h2>Current Mentors</h2>
+            <p>List of All Current Mentors:</p>
+            <ul class="fmentors-ul fmentors-card-4">
+                <li class="fmentors-bar">
+                    <span onclick="this.parentElement.style.display='none'"
+                        class="fmentors-bar-item fmentors-button fmentors-white fmentors-xlarge fmentors-right">Withdraw</span>
+                    <a href="mentor__profile.html">
+                        <img src="images/manpic.png" class="fmentors-bar-item fmentors-circle fmentors-hide-small"
+                        style="width:85px"></a>
+                    <div class="fmentors-bar-item">
+                        <span class="fmentors-large">Niyonsenga Eric</span><br>
+                        <span>Life & Personal Development Mentor</span>
+                    </div>
+                </li>
+
+                <li class="fmentors-bar">
+                    <span onclick="this.parentElement.style.display='none'"
+                        class="fmentors-bar-item fmentors-button fmentors-white fmentors-xlarge fmentors-right">Withdraw</span>
+                    <a href="mentor__profile.html">
+                        <img src="images/manpic.png" class="fmentors-bar-item fmentors-circle fmentors-hide-small"
+                        style="width:85px"></a>
+                    <div class="fmentors-bar-item">
+                        <span class="fmentors-large">Uwimana Patrick</span><br>
+                        <span>Software Mentor</span>
+                    </div>
+                </li>
+
+                <li class="fmentors-bar">
+                    <span onclick="this.parentElement.style.display='none'"
+                        class="fmentors-bar-item fmentors-button fmentors-white fmentors-xlarge fmentors-right">Withdraw</span>
+                    <a href="mentor__profile.html">
+                        <img src="images/manpic.png" class="fmentors-bar-item fmentors-circle fmentors-hide-small"
+                        style="width:85px"></a>
+                    <div class="fmentors-bar-item">
+                        <span class="fmentors-large">Jules Bihira</span><br>
+                        <span>Graphic Design Mentor</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Pagination -->
+        <div class="fmentors-center fmentors-padding-32">
+            <div class="fmentors-bar">
+                <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">«</a>
+                <a href="#" class="fmentors-bar-item fmentors-black fmentors-button">1</a>
+                <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">2</a>
+                <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">3</a>
+                <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">4</a>
+                <a href="#" class="fmentors-bar-item fmentors-button fmentors-hover-black">»</a>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="fmentors-center fmentors-black fmentors-padding-16">
+            <p>
+                Copyright @2019 by Benit Havugimana -
+                <a href="" title="Free Mentors" target="_blank" class="fmentors-hover-text-green">Free Mentors</a>
+            </p>
+        </footer>
+    </div>
+
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

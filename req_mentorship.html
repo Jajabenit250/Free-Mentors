@@ -34,9 +34,8 @@
         Mentors <i class="fa fa-caret-down"></i>
       </a>
       <div id="navResponsive" class="fmentors-bar-block fmentors-hide fmentors-padding-large fmentors-medium">
-        <a href="mentors.html" class="fmentors-bar-item fmentors-button"><i
-            class="fa fa-caret-right fmentors-margin-right fmentors-light-grey"></i>Mentors</a>
-        <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Dashboard</a>
+        <a href="mentors.html" class="fmentors-bar-item fmentors-button">All Mentors</a>
+        <a href="mentors_dash.html" class="fmentors-bar-item fmentors-button">Mentor Dashboard</a>
       </div>
       <a href="login.html" class="fmentors-bar-item fmentors-button">Login</a>
       <a href="register.html" class="fmentors-bar-item fmentors-button">Register</a>
@@ -73,15 +72,26 @@
         <div class="fmentors-container fmentors-grey">
           <h2>Request Mentorship Session</h2>
         </div>
-
+        <br>
         <form class="fmentors-container">
-          <p>
-            <label>Email</label><span class="fmentors-text-red">*</span>
-            <input class="fmentors-input" type="email" required placeholder="add your email"></p>
-          <p>
-            <label>Question</label><span class="fmentors-text-red">*</span>
-            <input class="fmentors-input" type="text" required placeholder="add your Question"></p>
-          <p>
+          <div class="fmentors-row fmentors-container">
+            <div class="fmentors-col s4">
+              <label>Email:</label><span style="color: red">*</span>
+            </div>
+            <div class="fmentors-col s6">
+              <input class="fmentors-input" type="email" required placeholder="Enter your email">
+            </div>
+          </div>
+          <br>
+          <div class="fmentors-row fmentors-container">
+            <div class="fmentors-col s4">
+              <label>Question:</label><span style="color: red">*</span>
+            </div>
+            <div class="fmentors-col s6">
+              <textarea class="fmentors-input" type="text" required placeholder="add your Question"></textarea>
+            </div>
+          </div>
+          <br>
             <button class="fmentors-btn fmentors-blue">Submit Request</button> 
         </form>
     </center>
@@ -92,17 +102,17 @@
   <br>
   <br>
 
+<!-- Footer -->
+<footer class="fmentors-center fmentors-black fmentors-padding-16">
+  <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank"
+      class="fmentors-hover-text-green">Free Mentors</a></p>
+</footer>
 
   </div>
 
 
 
-  <!-- Footer -->
-  <footer class="fmentors-center fmentors-black fmentors-padding-16">
-    <p>Copyright @2019 by Benit Havugimana - <a href="" title="Free Mentors" target="_blank"
-        class="fmentors-hover-text-green">Free Mentors</a></p>
-  </footer>
-
+  
   <script src="./js/main.js">
 
   </script>
