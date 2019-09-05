@@ -86,7 +86,7 @@ let sessions = [
     status: 'pending'
   },
   {
-    id: 3,
+    id: 1,
     mentorId: '3',
     menteeId: '4',
     questions: 'Guide me to be great',
