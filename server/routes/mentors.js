@@ -1,10 +1,8 @@
 import { Router } from 'express';
+import mentors from '../controllers/mentors';
+
 const router = Router();
-router.get('/mentors', (req, res) => {
-  return res.send('Users can view mentors.');
-});
-router.get('/mentors/:mentorId', (req, res) => {
-  return res.send('Users can view a specific mentor.');
-});
+router.get('/mentors', mentors.listMentors);
+router.get('/mentors/:id', mentors.profileMentor);
 
 export default router;

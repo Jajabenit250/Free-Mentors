@@ -12,7 +12,7 @@ const users = [
     phoneNumber: ' +250782314242',
     address: 'UMUSAVE',
     role: 'mentor',
-    isAdmin: false
+    isAdmin: true
   },
   {
     id: 2,

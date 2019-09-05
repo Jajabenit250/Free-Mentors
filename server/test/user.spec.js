@@ -239,7 +239,7 @@ describe('POST /', () => {
 // test Change User to mentor
 
 describe('PATCH /', () => {
-  it('It should cancel a user to mentor request if admin ', done => {
+  it('It should accept a user to mentor request if admin ', done => {
     const Signed = {
       id: 6,
       email: 'newuser@gmail.com',
