@@ -1,12 +1,15 @@
 import { Router } from 'express';
 import sessions from '../controllers/sessions';
 import authChecker from '../middlewares/authChecker';
+import mentorChecker from '../middlewares/mentorChecker';
 const router = Router();
 router.post('/sessions', [authChecker], sessions.requestSession);
-router.patch('/sessions/:sessionId/accept', (req, res) => {
-  return res.send('accept mentorship session');
-});
-router.patch('/sessions/:sessionId/reject', (req, res) => {
+router.patch(
+  '/sessions/:id/accept',
+  [authChecker, mentorChecker],
+  sessions.acceptSession
+);
+router.patch('/sessions/:id/reject', (req, res) => {
   return res.send('reject mentorship session');
 });
 router.get('/sessions', (req, res) => {
