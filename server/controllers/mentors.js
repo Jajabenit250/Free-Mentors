@@ -18,7 +18,9 @@ const profileMentor = async (req, res) => {
     mentor => mentor.id == parseInt(id, 10) && mentor.role == 'mentor'
   );
   if (mentorProfile) {
-    response.response(res, 200, 200, mentorProfile);
+    const hideMentorPassword = { ...mentorProfile };
+    delete hideMentorPassword.password;
+    response.response(res, 200, 200, hideMentorPassword);
   } else {
     response.response(res, 404, 404, 'No Mentor found', true);
   }
