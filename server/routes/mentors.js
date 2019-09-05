@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import mentors from '../controllers/mentors'
+import mentors from '../controllers/mentors';
 const router = Router();
 router.get('/mentors', mentors.listMentors);
 router.get('/mentors/:mentorId', (req, res) => {
