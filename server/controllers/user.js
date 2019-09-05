@@ -100,7 +100,13 @@ const signInUser = async (req, res) => {
           token
         };
 
-        return response.response(res, 200, 200, {token: responses.token}, false);
+        return response.response(
+          res,
+          200,
+          200,
+          { token: responses.token },
+          false
+        );
       }
     } else {
       return response.response(res, 401, 401, 'Invalid password', true);
@@ -109,8 +115,25 @@ const signInUser = async (req, res) => {
     return response.response(res, 401, 401, 'Invalid user or password', true);
   }
 };
+const userTomentor = async (req, res) => {
+  const { id } = req.params;
+  const userId = models.users.findIndex(usr => usr.id === parseInt(id, 10));
+  if (userId >= 0) {
+    models.users[userId].role = 'mentor';
+    return response.response(
+      res,
+      200,
+      200,
+      'User account changed to mentor',
+      false
+    );
+  } else {
+    return response.response(res, 404, 404, 'User not Found!', true);
+  }
+};
 
 export default {
   signUpUser,
-  signInUser
+  signInUser,
+  userTomentor
 };

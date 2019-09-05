@@ -235,3 +235,85 @@ describe('POST /', () => {
       });
   });
 });
+
+// test Change User to mentor
+
+describe('PATCH /', () => {
+  it('It should cancel a user to mentor request if admin ', done => {
+    const Signed = {
+      id: 6,
+      email: 'newuser@gmail.com',
+      firstName: 'Niyonsenga',
+      lastName: 'Eric',
+      birthdate: '555211',
+      occupation: 'student',
+      expertise: 'ehjkk,',
+      bio: 'akkkk',
+      phoneNumber: '0789769787',
+      address: 'Kacyiru',
+      isAdmin: true
+    };
+    const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
+    chai
+      .request(app)
+      .patch('/api/v1/user/1')
+      .set('token', Token)
+      .send()
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('It should return User not Found! if a user does not exist ', done => {
+    const Signed = {
+      id: 6,
+      email: 'newuser@gmail.com',
+      firstName: 'Niyonsenga',
+      lastName: 'Eric',
+      birthdate: '555211',
+      occupation: 'student',
+      expertise: 'ehjkk,',
+      bio: 'akkkk',
+      phoneNumber: '0789769787',
+      address: 'Kacyiru',
+      isAdmin: true
+    };
+    const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
+    chai
+      .request(app)
+      .patch('/api/v1/user/20')
+      .set('token', Token)
+      .send()
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
+
+  it('It should return 401 if you are not admin ', done => {
+    const Signed = {
+      id: 1,
+      email: 'byusa@gmail.com',
+      firstName: 'BYUSA',
+      lastName: 'PRINCE DACY',
+      birthdate: '555211',
+      occupation: 'student',
+      expertise: 'ehjkk,',
+      bio: 'akkkk',
+      phoneNumber: ' +250782314242',
+      address: 'UMUSAVE',
+      isAdmin: false
+    };
+    const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
+    chai
+      .request(app)
+      .patch('/api/v1/user/1')
+      .set('token', Token)
+      .send()
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        done();
+      });
+  });
+});
