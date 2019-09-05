@@ -44,6 +44,19 @@ const requestSession = async (req, res) => {
     }
   }
 };
+const acceptSession = async (req, res) => {
+  const { id } = req.params;
+  const sessionf = models.sessions.find(
+    usession => usession.id === parseInt(id, 10)
+  );
+  if (sessionf) {
+    sessionf.status = 'accepted';
+    response.response(res, 200, 200, sessionf);
+  } else {
+    response.response(res, 404, 404, 'No Session found', true);
+  }
+};
 export default {
-  requestSession
+  requestSession,
+  acceptSession
 };
