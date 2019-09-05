@@ -18,4 +18,26 @@ describe('GET /', () => {
         done();
       });
   });
+
+  it('It should display a specific mentor ', done => {
+    chai
+      .request(app)
+      .get('/api/v1/mentors/1')
+      .send()
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('It should not return mentor if there is no mentor found with specific id', done => {
+    chai
+      .request(app)
+      .get('/api/v1/mentors/10')
+      .send()
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
 });

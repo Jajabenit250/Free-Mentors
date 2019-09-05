@@ -12,7 +12,21 @@ const listMentors = async (req, res) => {
     response.response(res, 200, 200, searchMentors);
   }
 };
+const profileMentor = async (req, res) => {
+  const { id } = req.params;
+  const mentorProfile = models.users.find(
+    mentor => mentor.id == parseInt(id, 10) && mentor.role == 'mentor'
+  );
+  if (mentorProfile) {
+    const hideMentorPassword = { ...mentorProfile };
+    delete hideMentorPassword.password;
+    response.response(res, 200, 200, hideMentorPassword);
+  } else {
+    response.response(res, 404, 404, 'No Mentor found', true);
+  }
+};
 
 export default {
-  listMentors
+  listMentors,
+  profileMentor
 };
