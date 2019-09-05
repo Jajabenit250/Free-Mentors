@@ -1,8 +1,8 @@
 import { Router } from 'express';
+import sessions from '../controllers/sessions';
+import authChecker from '../middlewares/authChecker';
 const router = Router();
-router.post('/sessions', (req, res) => {
-  return res.send('create mentorship session request');
-});
+router.post('/sessions', [authChecker], sessions.requestSession);
 router.patch('/sessions/:sessionId/accept', (req, res) => {
   return res.send('accept mentorship session');
 });
