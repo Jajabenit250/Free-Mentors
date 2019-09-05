@@ -12,7 +12,19 @@ const listMentors = async (req, res) => {
     response.response(res, 200, 200, searchMentors);
   }
 };
+const profileMentor = async (req, res) => {
+  const { id } = req.params;
+  const userId = models.users.find(
+    usr => usr.id == parseInt(id, 10) && usr.role == 'mentor'
+  );
+  if (userId) {
+    response.response(res, 200, userId);
+  } else {
+    response.response(res, 404, 'No Mentor found', true);
+  }
+};
 
 export default {
-  listMentors
+  listMentors,
+  profileMentor
 };
