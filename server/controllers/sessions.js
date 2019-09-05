@@ -19,12 +19,12 @@ const requestSession = async (req, res) => {
     );
   const session = await models.sessions.filter(
     (session => session.mentorId === req.body.mentorId) &&
-      (session => session.mentreeId === req.user.id)
+      (session => session.menteeId === req.user.id)
   );
   if (session.length > 0) {
     return response.response(res, 401, 401, 'Session already requested', true);
   } else {
-    const { mentorId, mentreeEmail, question } = req.body;
+    const { mentorId, menteeEmail, question } = req.body;
     const mentorPro = models.users.find(
       usr => usr.id == parseInt(mentorId, 10) && usr.role == 'mentor'
     );
@@ -32,8 +32,8 @@ const requestSession = async (req, res) => {
       const addSession = {
         id: models.sessions.length + 1,
         mentorId: mentorId,
-        mentreeId: req.user.id,
-        mentreeEmail: mentreeEmail,
+        menteeId: req.user.id,
+        menteeEmail: menteeEmail,
         question: question,
         status: 'pending'
       };
@@ -56,7 +56,20 @@ const acceptSession = async (req, res) => {
     response.response(res, 404, 404, 'No Session found', true);
   }
 };
+const rejectSession = async (req, res) => {
+  const { id } = req.params;
+  const sessionf = models.sessions.find(
+    usession => usession.id === parseInt(id, 10)
+  );
+  if (sessionf) {
+    sessionf.status = 'rejected';
+    response.response(res, 200, 200, sessionf);
+  } else {
+    response.response(res, 404, 404, 'No Session found', true);
+  }
+};
 export default {
   requestSession,
-  acceptSession
+  acceptSession,
+  rejectSession
 };

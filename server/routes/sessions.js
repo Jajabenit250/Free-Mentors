@@ -9,9 +9,11 @@ router.patch(
   [authChecker, mentorChecker],
   sessions.acceptSession
 );
-router.patch('/sessions/:id/reject', (req, res) => {
-  return res.send('reject mentorship session');
-});
+router.patch(
+  '/sessions/:id/reject',
+  [authChecker, mentorChecker],
+  sessions.rejectSession
+);
 router.get('/sessions', (req, res) => {
   return res.send('all mentorship session requests');
 });
