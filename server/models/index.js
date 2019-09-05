@@ -26,7 +26,7 @@ const users = [
     bio: 'inspire the next',
     phoneNumber: '+250789769787',
     address: 'TORONTO',
-    role: 'mentree',
+    role: 'mentee',
     isAdmin: false
   },
   {
@@ -41,7 +41,7 @@ const users = [
     bio: 'inspire the next',
     phoneNumber: ' +250782314242',
     address: 'GACYAMO',
-    role: 'mentree',
+    role: 'mentee',
     isAdmin: false
   },
   {
@@ -56,7 +56,7 @@ const users = [
     bio: 'inspire the next',
     phoneNumber: ' +250782314242',
     address: 'RUTURUSU',
-    role: 'mentree',
+    role: 'mentee',
     isAdmin: false
   },
   {
@@ -80,17 +80,17 @@ let sessions = [
   {
     id: 2,
     mentorId: '5',
-    mentreeId: '2',
+    menteeId: '2',
     questions: 'i like explore new things',
-    mentreeEmail: 'eric@gmail.com',
+    menteeEmail: 'eric@gmail.com',
     status: 'pending'
   },
   {
     id: 3,
     mentorId: '3',
-    mentreeId: '4',
+    menteeId: '4',
     questions: 'Guide me to be great',
-    mentreeEmail: 'alfred@gmail.com',
+    menteeEmail: 'alfred@gmail.com',
     status: 'pending'
   }
 ];

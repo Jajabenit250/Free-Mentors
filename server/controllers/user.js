@@ -58,7 +58,7 @@ const signUpUser = async (req, res) => {
       expertise: expertise,
       bio: bio,
       address: address.toUpperCase(),
-      role: 'mentree',
+      role: 'mentee',
       isAdmin: false
     };
     const salt = await bcrypt.genSalt(10);
