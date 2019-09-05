@@ -14,13 +14,13 @@ const listMentors = async (req, res) => {
 };
 const profileMentor = async (req, res) => {
   const { id } = req.params;
-  const userId = models.users.find(
-    usr => usr.id == parseInt(id, 10) && usr.role == 'mentor'
+  const mentorProfile = models.users.find(
+    mentor => mentor.id == parseInt(id, 10) && mentor.role == 'mentor'
   );
-  if (userId) {
-    response.response(res, 200, userId);
+  if (mentorProfile) {
+    response.response(res, 200, 200, mentorProfile);
   } else {
-    response.response(res, 404, 'No Mentor found', true);
+    response.response(res, 404, 404, 'No Mentor found', true);
   }
 };
 
