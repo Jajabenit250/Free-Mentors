@@ -17,11 +17,11 @@ const requestSession = async (req, res) => {
       `${error.details[0].message}`,
       true
     );
-  const session = await models.sessions.filter(
-    (session => session.mentorId === req.body.mentorId) &&
-      (session => session.menteeId === req.user.id)
+  const sessionfinder = await models.sessions.filter(
+    (sessionfinder => sessionfinder.mentorId === req.body.mentorId) &&
+      (sessionfinder => sessionfinder.menteeId === req.user.id)
   );
-  if (session.length > 0) {
+  if (sessionfinder.length > 0) {
     return response.response(res, 401, 401, 'Session already requested', true);
   } else {
     const { mentorId, menteeEmail, question } = req.body;
@@ -46,12 +46,12 @@ const requestSession = async (req, res) => {
 };
 const acceptSession = async (req, res) => {
   const { id } = req.params;
-  const sessionf = models.sessions.find(
-    usession => usession.id === parseInt(id, 10)
+  const session = models.sessions.find(
+    session => session.id === parseInt(id, 10)
   );
-  if (sessionf) {
-    sessionf.status = 'accepted';
-    response.response(res, 200, 200, sessionf);
+  if (session) {
+    session.status = 'accepted';
+    response.response(res, 200, 200, session);
   } else {
     response.response(res, 404, 404, 'No Session found', true);
   }

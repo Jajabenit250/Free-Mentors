@@ -21,10 +21,10 @@ const signUpUser = async (req, res) => {
       true
     );
 
-  let user = await models.users.filter(
-    user => user.email.toLowerCase() === req.body.email.toLowerCase()
+  let usermail = await models.users.filter(
+    usermail => usermail.email.toLowerCase() === req.body.email.toLowerCase()
   );
-  if (user.length > 0) {
+  if (usermail.length > 0) {
     return response.response(
       res,
       401,

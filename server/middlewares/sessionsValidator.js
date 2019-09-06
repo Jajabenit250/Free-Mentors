@@ -9,7 +9,7 @@ const sessionsValidator = user => {
     question: Joi.string()
       .max(50)
       .required(),
-    mentreeEmail: Joi.string()
+    menteeEmail: Joi.string()
       .min(5)
       .max(250)
       .required()
