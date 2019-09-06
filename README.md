@@ -93,7 +93,7 @@ $ npm lint
 
 ### Heroku
 
-The application API is not hosted on Heroku Yet:
+The application API is hosted on Heroku: https://free-mentors-benit.herokuapp.com/documentation/
 
 ### Github Pages
 
