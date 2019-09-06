@@ -5,11 +5,14 @@ import user from './routes/user';
 import mentors from './routes/mentors';
 import sessions from './routes/sessions';
 import bodyParser from 'body-parser';
+import Sui from 'swagger-ui-express';
+import documentation from '../app.json';
 import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
 
+app.use('/documentation', Sui.serve, Sui.setup(documentation));
 app.use(cors());
 
 app.use(bodyParser.json());
