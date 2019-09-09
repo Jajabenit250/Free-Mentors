@@ -26,8 +26,23 @@ const users = [
     bio: 'inspire the next',
     phoneNumber: '+250789769787',
     address: 'TORONTO',
-    role: 'mentee',
+    role: 'mentor',
     isAdmin: false
+  },
+  {
+    id: 3,
+    email: 'benitAdmin@gmail.com',
+    firstName: 'Benit',
+    lastName: 'Havugimana',
+    password: '$2b$10$hwkOJznThaAoSN3KkntBFO7/BazavJU1BYh6lvemXa33/4t0.UAdu',
+    birthdate: '12/5/1996',
+    occupation: 'student',
+    expertise: 'software',
+    bio: 'inspire the next',
+    phoneNumber: '+250789769787',
+    address: 'TORONTO',
+    role: 'mentor',
+    isAdmin: true
   }
 ];
 
