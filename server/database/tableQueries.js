@@ -13,10 +13,4 @@ CREATE TABLE
                 occupation TEXT NOT NULL,
                 bio TEXT NOT NULL,
                 role TEXT NOT NULL,
-                isAdmin BOOLEAN);
-            sessions(
-                id SERIAL PRIMARY KEY,
-                mentorId TEXT NOT NULL,
-                menteeId TEXT,
-                menteeEmail TEXT NOT NULL,
-                question TEXT NOT NULL);`;
+                isAdmin BOOLEAN);`;
