@@ -8,6 +8,7 @@ module.exports = function auth(req, res, next) {
       res,
       401,
       401,
+      'Check your header',
       'Access denied. no token provided.',
       true
     );
@@ -18,6 +19,13 @@ module.exports = function auth(req, res, next) {
 
     next();
   } catch (ex) {
-    return response.response(res, 401, 401, 'invalid token.', true);
+    return response.response(
+      res,
+      401,
+      401,
+      'Check your header',
+      'invalid token.',
+      true
+    );
   }
 };

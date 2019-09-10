@@ -24,7 +24,7 @@ const requestSession = async (req, res) => {
   if (sessionfinder.length > 0) {
     return response.response(res, 401, 401, 'Session already requested', true);
   } else {
-    const { mentorId, menteeEmail, question } = req.body;
+    const { mentorId, question } = req.body;
     const mentorPro = models.users.find(
       usr => usr.id == parseInt(mentorId, 10) && usr.role == 'mentor'
     );
@@ -33,7 +33,7 @@ const requestSession = async (req, res) => {
         id: models.sessions.length + 1,
         mentorId: mentorId,
         menteeId: req.user.id,
-        menteeEmail: menteeEmail,
+        menteeEmail: req.user.email,
         question: question,
         status: 'pending'
       };
