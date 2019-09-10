@@ -141,34 +141,43 @@ const signInUser = async (req, res) => {
       `${error.details[0].message}`,
       true
     );
+  let emailCheck = await client.query('SELECT * FROM users WHERE email=$1', [
+    req.body.email.toLowerCase()
+  ]);
 
-  const user = await models.users.filter(
-    user => user.email.toLowerCase() === req.body.email.toLowerCase()
-  );
-  if (user.length > 0) {
-    if (bcrypt.compareSync(password, user[0].password)) {
+  if (emailCheck.rows.length > 0) {
+    if (bcrypt.compareSync(password, emailCheck.rows[0].password)) {
       const token = jwt.sign(
-        { id: user[0].id, isAdmin: user[0].isAdmin },
+        {
+          id: emailCheck.rows[0].id,
+          isAdmin: emailCheck.rows[0].isAdmin,
+          role: emailCheck.rows[0].role,
+          email: emailCheck.rows[0].email
+        },
         process.env.JWT
       );
       {
+        const {
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          address
+        } = emailCheck.rows[0];
+
         const responses = {
-          firstname: user[0].firstName,
-          lastname: user[0].lastName,
-          email: user[0].email,
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          address,
           token
         };
 
-        return response.response(
-          res,
-          200,
-          200,
-          { token: responses.token },
-          false
-        );
+        return response.response(res, 200, 200, responses, false);
       }
     } else {
-      return response.response(res, 401, 401, 'Invalid password', true);
+      return response.response(res, 401, 401, 'Invalid user or password', true);
     }
   } else {
     return response.response(res, 401, 401, 'Invalid user or password', true);
