@@ -174,7 +174,14 @@ const signInUser = async (req, res) => {
           token
         };
 
-        return response.response(res, 200, 200, responses, false);
+        return response.response(
+          res,
+          200,
+          200,
+          'user succesfully signIn',
+          responses,
+          false
+        );
       }
     } else {
       return response.response(res, 401, 401, 'Invalid user or password', true);
