@@ -6,7 +6,18 @@ import signinValidator from '../middlewares/signinValidator';
 import models from '../models';
 import express from 'express';
 import response from '../helpers/response';
+import { Client, Pool } from 'pg';
+import dotenv from 'dotenv';
+
 const router = express.Router();
+dotenv.config();
+const { JWT } = process.env;
+const { DATABASE_URL } = process.env;
+const connectionString = DATABASE_URL;
+const client = new Client({
+  connectionString
+});
+client.connect();
 
 // eslint-disable-next-line
 const signUpUser = async (req, res) => {
@@ -21,10 +32,10 @@ const signUpUser = async (req, res) => {
       true
     );
 
-  let usermail = await models.users.filter(
-    usermail => usermail.email.toLowerCase() === req.body.email.toLowerCase()
-  );
-  if (usermail.length > 0) {
+  let usermail = await client.query('SELECT * FROM users WHERE email=$1 ', [
+    req.body.email.toLowerCase()
+  ]);
+  if (usermail.rows.length > 0) {
     return response.response(
       res,
       401,
@@ -33,41 +44,89 @@ const signUpUser = async (req, res) => {
       true
     );
   } else {
-    const {
-      firstName,
-      lastName,
-      email,
-      password,
-      birthdate,
-      phoneNumber,
-      address,
-      occupation,
-      expertise,
-      bio
-    } = req.body;
-    // Add to object
-    const addUser = {
-      id: models.users.length + 1,
-      firstName: firstName.toUpperCase(),
-      lastName: lastName.toUpperCase(),
-      email: email.toLowerCase(),
-      password: password,
-      phoneNumber: phoneNumber,
-      birthdate: birthdate,
-      occupation: occupation,
-      expertise: expertise,
-      bio: bio,
-      address: address.toUpperCase(),
-      role: 'mentee',
-      isAdmin: false
-    };
-    const salt = await bcrypt.genSalt(10);
-    addUser.password = await bcrypt.hash(addUser.password, salt);
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(req.body.password, salt, async (err, hash) => {
+        let newpassword = hash;
+        let admin = 'false';
+        if (req.body.email == process.env.administrator) {
+          admin = 'true';
+        }
+        const {
+          email,
+          firstName,
+          lastName,
+          phoneNumber,
+          address,
+          birthdate,
+          expertise,
+          occupation,
+          bio
+        } = req.body;
+        const defaultRole = 'mentee';
+        const recordUser = client.query(
+          'INSERT INTO users(email, firstname, lastname, password, phonenumber, address, birthdate, expertise, occupation, bio, role, isadmin)VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',
+          [
+            email.toLowerCase(),
+            firstName,
+            lastName,
+            newpassword,
+            phoneNumber,
+            address,
+            birthdate,
+            expertise,
+            occupation,
+            bio,
+            defaultRole,
+            admin
+          ]
+        );
 
-    models.users.push(addUser);
-    const hidepasscode = { ...addUser };
-    delete hidepasscode.password;
-    response.response(res, 201, 201, hidepasscode, false);
+        if (recordUser) {
+          let getId = await client.query(
+            'SELECT * FROM users WHERE email=$1 ',
+            [req.body.email.toLowerCase()]
+          );
+          const toBeSigned = {
+            id: getId.rows[0].id,
+            role: 'mentee',
+            isAdmin: false
+          };
+          jwt.sign(toBeSigned, JWT, { expiresIn: '24h' }, (err, token) => {
+            const {
+              email,
+              firstName,
+              lastName,
+              phoneNumber,
+              address,
+              birthdate,
+              expertise,
+              occupation,
+              bio
+            } = req.body;
+            const payload = {
+              email,
+              firstName,
+              lastName,
+              phoneNumber,
+              address,
+              birthdate,
+              expertise,
+              occupation,
+              bio,
+              token
+            };
+            return response.response(
+              res,
+              201,
+              201,
+              'User completely added',
+              payload,
+              false
+            );
+          });
+        }
+      });
+    });
   }
 };
 const signInUser = async (req, res) => {
