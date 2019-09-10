@@ -39,7 +39,8 @@ const signupValidator = user => {
     password: Joi.string()
       .min(5)
       .max(50)
-      .required()
+      .required(),
+    isAdmin: Joi.boolean().default(false)
   };
 
   return Joi.validate(user, schema);

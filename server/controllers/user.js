@@ -28,6 +28,7 @@ const signUpUser = async (req, res) => {
       res,
       422,
       422,
+      'check your body input',
       `${error.details[0].message}`,
       true
     );
@@ -40,6 +41,7 @@ const signUpUser = async (req, res) => {
       res,
       401,
       401,
+      'error',
       'User with that email already registered',
       true
     );
@@ -47,10 +49,6 @@ const signUpUser = async (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(req.body.password, salt, async (err, hash) => {
         let newpassword = hash;
-        let admin = 'false';
-        if (req.body.email == process.env.administrator) {
-          admin = 'true';
-        }
         const {
           email,
           firstName,
@@ -60,7 +58,8 @@ const signUpUser = async (req, res) => {
           birthdate,
           expertise,
           occupation,
-          bio
+          bio,
+          isAdmin
         } = req.body;
         const defaultRole = 'mentee';
         const recordUser = client.query(
@@ -77,7 +76,7 @@ const signUpUser = async (req, res) => {
             occupation,
             bio,
             defaultRole,
-            admin
+            isAdmin
           ]
         );
 
@@ -88,8 +87,8 @@ const signUpUser = async (req, res) => {
           );
           const toBeSigned = {
             id: getId.rows[0].id,
-            role: 'mentee',
-            isAdmin: false
+            role: getId.rows[0].role,
+            isAdmin: getId.rows[0].isadmin
           };
           jwt.sign(toBeSigned, JWT, { expiresIn: '24h' }, (err, token) => {
             const {
@@ -138,6 +137,7 @@ const signInUser = async (req, res) => {
       res,
       422,
       422,
+      'check your body input',
       `${error.details[0].message}`,
       true
     );
@@ -150,7 +150,7 @@ const signInUser = async (req, res) => {
       const token = jwt.sign(
         {
           id: emailCheck.rows[0].id,
-          isAdmin: emailCheck.rows[0].isAdmin,
+          isAdmin: emailCheck.rows[0].isadmin,
           role: emailCheck.rows[0].role,
           email: emailCheck.rows[0].email
         },
@@ -158,19 +158,23 @@ const signInUser = async (req, res) => {
       );
       {
         const {
-          firstName,
-          lastName,
+          firstname,
+          lastname,
           email,
-          phoneNumber,
-          address
+          phonenumber,
+          address,
+          role,
+          isadmin
         } = emailCheck.rows[0];
 
         const responses = {
-          firstName,
-          lastName,
+          firstname,
+          lastname,
           email,
-          phoneNumber,
+          phonenumber,
           address,
+          role,
+          isadmin,
           token
         };
 
@@ -184,26 +188,46 @@ const signInUser = async (req, res) => {
         );
       }
     } else {
-      return response.response(res, 401, 401, 'Invalid user or password', true);
+      return response.response(
+        res,
+        401,
+        401,
+        'error',
+        'Invalid user or password',
+        true
+      );
     }
   } else {
-    return response.response(res, 401, 401, 'Invalid user or password', true);
+    return response.response(
+      res,
+      401,
+      401,
+      'error',
+      'Invalid user or password',
+      true
+    );
   }
 };
 const userTomentor = async (req, res) => {
   const { id } = req.params;
-  const userId = models.users.findIndex(usr => usr.id === parseInt(id, 10));
-  if (userId >= 0) {
-    models.users[userId].role = 'mentor';
+  const userId = await client.query('SELECT * FROM users WHERE id=$1', [id]);
+  if (userId.rows.length > 0) {
+    const { role } = userId.rows[0];
+    const newrole = 'mentor';
+    const updateRole = client.query('UPDATE users SET role=$1 where id = $2', [
+      newrole,
+      id
+    ]);
     return response.response(
       res,
       200,
       200,
       'User account changed to mentor',
+      'successfully changed to mentor',
       false
     );
   } else {
-    return response.response(res, 404, 404, 'User not Found!', true);
+    return response.response(res, 404, 404, 'error', 'User not Found!', true);
   }
 };
 

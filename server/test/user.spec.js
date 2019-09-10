@@ -22,7 +22,8 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0789769787',
-      address: 'Kacyiru'
+      address: 'Kacyiru',
+      isAdmin: true
     };
 
     chai
@@ -47,7 +48,7 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0784524569',
-      address: 'Kabuga'
+      address: 'Kabuga',
     };
 
     chai

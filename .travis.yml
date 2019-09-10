@@ -1,14 +1,14 @@
 language: node_js
 node_js:
- - node
+  - node
 install:
- - npm install
+  - npm install
 services:
- - postgresql
+  - postgresql
 
 before_script:
- - psql -c 'CREATE DATABASE free_mentors;' -U postgres
+  - psql -c 'CREATE DATABASE free_mentors;' -U postgres
 script:
- - npm run test
+  - npm run test
 after_success:
- - npm run coverage
+  - npm run coverage
