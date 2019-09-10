@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import response from '../helpers/response';
 
-module.exports = function auth(req, res, next) {
+const auth = (req, res, next) => {
   const token = req.header('token');
   if (!token) {
     return response.response(
@@ -28,4 +28,7 @@ module.exports = function auth(req, res, next) {
       true
     );
   }
+};
+export default {
+  auth
 };

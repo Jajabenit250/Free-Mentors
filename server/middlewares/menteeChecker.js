@@ -1,7 +1,7 @@
 import response from '../helpers/response';
 import users from '../models';
 
-module.exports = function(req, res, next) {
+const menteeChecker = (req, res, next) => {
   if (req.user.role != 'mentee')
     return response.response(
       res,
@@ -13,4 +13,7 @@ module.exports = function(req, res, next) {
     );
 
   next();
+};
+export default {
+  menteeChecker
 };

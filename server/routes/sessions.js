@@ -3,15 +3,15 @@ import sessions from '../controllers/sessions';
 import authChecker from '../middlewares/authChecker';
 import mentorChecker from '../middlewares/mentorChecker';
 const router = Router();
-router.post('/sessions', [authChecker], sessions.requestSession);
+router.post('/sessions', [authChecker.auth], sessions.requestSession);
 router.patch(
   '/sessions/:id/accept',
-  [authChecker, mentorChecker],
+  [authChecker.auth, mentorChecker.mentorChecker],
   sessions.acceptSession
 );
 router.patch(
   '/sessions/:id/reject',
-  [authChecker, mentorChecker],
+  [authChecker.auth, mentorChecker.mentorChecker],
   sessions.rejectSession
 );
 router.get('/sessions', (req, res) => {
