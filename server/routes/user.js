@@ -6,5 +6,9 @@ const router = Router();
 
 router.post('/auth/signup', user.signUpUser);
 router.post('/auth/signin', user.signInUser);
-router.patch('/user/:id', [authChecker, adminChecker], user.userTomentor);
+router.patch(
+  '/user/:id',
+  [authChecker.auth, adminChecker.adminChecker],
+  user.userTomentor
+);
 export default router;
