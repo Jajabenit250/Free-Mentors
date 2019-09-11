@@ -13,4 +13,4 @@ CREATE TABLE
                 occupation TEXT NOT NULL,
                 bio TEXT NOT NULL,
                 role TEXT NOT NULL,
-                isAdmin BOOLEAN);`;
+                isAdmin BOOLEAN DEFAULT false);`;

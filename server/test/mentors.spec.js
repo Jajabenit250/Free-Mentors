@@ -22,7 +22,7 @@ describe('GET /', () => {
       phoneNumber: '0789769787',
       address: 'Kacyiru',
       role: 'mentee',
-      isAdmin: true
+      isAdmin: false
     };
     const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
     chai
@@ -31,7 +31,7 @@ describe('GET /', () => {
       .set('token', Token)
       .send()
       .end((err, res) => {
-        expect(res.status).to.equal(200);
+        expect(res.statusCode).to.equal(200);
         done();
       });
   });
@@ -49,7 +49,7 @@ describe('GET /', () => {
       phoneNumber: '0789769787',
       address: 'Kacyiru',
       role: 'mentee',
-      isAdmin: true
+      isAdmin: false
     };
     const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
     chai
@@ -58,7 +58,7 @@ describe('GET /', () => {
       .set('token', Token)
       .send()
       .end((err, res) => {
-        expect(res.status).to.equal(200);
+        expect(res.statusCode).to.equal(200);
         done();
       });
   });
@@ -85,7 +85,7 @@ describe('GET /', () => {
       .set('token', Token)
       .send()
       .end((err, res) => {
-        expect(res.status).to.equal(404);
+        expect(res.statusCode).to.equal(404);
         done();
       });
   });

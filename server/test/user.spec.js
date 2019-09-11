@@ -22,8 +22,7 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0789769787',
-      address: 'Kacyiru',
-      isAdmin: true
+      address: 'Kacyiru'
     };
 
     chai
@@ -48,8 +47,7 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0784524569',
-      address: 'Kabuga',
-      isAdmin: false
+      address: 'Kabuga'
     };
 
     chai
@@ -74,8 +72,7 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0789837734',
-      address: 'Kibungo',
-      isAdmin: false
+      address: 'Kibungo'
     };
 
     chai
@@ -100,8 +97,7 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0789837734',
-      address: 'Kibungo',
-      isAdmin: false
+      address: 'Kibungo'
     };
 
     chai
@@ -126,8 +122,7 @@ describe('POST /', () => {
       bio:
         'more life as user i want to improve in life sector i want to move forward days by days and i truly beileve that i will meet new peoples to help me',
       phoneNumber: '0785634779',
-      address: 'Kicukiro',
-      isAdmin: false
+      address: 'Kicukiro'
     };
 
     chai
