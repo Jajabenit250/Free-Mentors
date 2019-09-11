@@ -27,15 +27,16 @@ const listMentors = async (req, res) => {
 };
 const profileMentor = async (req, res) => {
   const { id } = req.params;
-  const mentorProfile = models.users.find(
-    mentor => mentor.id == parseInt(id, 10) && mentor.role == 'mentor'
+  let mentorProfile = await client.query(
+    `SELECT * FROM users WHERE id=$1 AND role='mentor'`,
+    [id]
   );
-  if (mentorProfile) {
+  if (mentorProfile.rows.length > 0) {
     const hideMentorPassword = { ...mentorProfile };
     delete hideMentorPassword.password;
-    response.response(res, 200, 200, hideMentorPassword);
+    response.response(res, 200, 200, 'Specific mentor', hideMentorPassword);
   } else {
-    response.response(res, 404, 404, 'No Mentor found', true);
+    response.response(res, 404, 404, 'error', 'No Mentor found', true);
   }
 };
 
