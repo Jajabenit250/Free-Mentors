@@ -4,12 +4,25 @@ import _ from 'lodash';
 import express from 'express';
 import response from '../helpers/response';
 import models from '../models';
+import { Client, Pool } from 'pg';
+import dotenv from 'dotenv';
+
 const router = express.Router();
+dotenv.config();
+const { JWT } = process.env;
+const { DATABASE_URL } = process.env;
+const connectionString = DATABASE_URL;
+const client = new Client({
+  connectionString
+});
+client.connect();
 
 const listMentors = async (req, res) => {
-  const searchMentors = models.users.filter(sts => sts.role === 'mentor');
-  if (searchMentors) {
-    response.response(res, 200, 200, searchMentors);
+  let searchMentors = await client.query(
+    `SELECT * FROM users WHERE role='mentor'`
+  );
+  if (searchMentors.rows.length > 0) {
+    response.response(res, 200, 200, 'List of all Mentors', searchMentors.rows);
   }
 };
 const profileMentor = async (req, res) => {

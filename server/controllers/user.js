@@ -58,9 +58,9 @@ const signUpUser = async (req, res) => {
           birthdate,
           expertise,
           occupation,
-          bio,
-          isAdmin
+          bio
         } = req.body;
+        const admin = false;
         const defaultRole = 'mentee';
         const recordUser = client.query(
           'INSERT INTO users(email, firstname, lastname, password, phonenumber, address, birthdate, expertise, occupation, bio, role, isadmin)VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',
@@ -76,7 +76,7 @@ const signUpUser = async (req, res) => {
             occupation,
             bio,
             defaultRole,
-            isAdmin
+            admin
           ]
         );
 
