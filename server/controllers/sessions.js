@@ -112,12 +112,37 @@ const acceptSession = async (req, res) => {
 };
 const rejectSession = async (req, res) => {
   const { id } = req.params;
-  const sessionf = models.sessions.find(
-    usession => usession.id === parseInt(id, 10)
+  const session = await client.query(
+    `SELECT * FROM sessions WHERE id=$1 AND mentorId=$2`,
+    [id, req.user.id,]
   );
-  if (sessionf) {
-    sessionf.status = 'rejected';
-    response.response(res, 200, 200, sessionf);
+  if (session.rows.length > 0) {
+    const sessionStatus = await client.query(
+      `SELECT * FROM sessions WHERE status='pending'`
+    );
+    if (sessionStatus.rows.length > 0) {
+    const { status } = sessionStatus.rows[0];
+    const newStatus = 'rejected';
+    const updateStatus = client.query('UPDATE sessions SET status=$1 where id = $2', [
+      newStatus,
+      id,
+    ]);
+      response.response(
+        res,
+        200,
+        200,
+        'Successsfully accepted',
+        sessionStatus.rows[0]
+      );
+    } else {
+      response.response(
+        res,
+        404,
+        404,
+        'action already taken',
+        sessionStatus.rows[0]
+      );
+    }
   } else {
     response.response(res, 404, 404, 'No Session found', true);
   }
