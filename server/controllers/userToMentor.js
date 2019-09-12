@@ -32,7 +32,6 @@ const userTomentor = async (req, res) => {
       200,
       200,
       'User account changed to mentor',
-      userId.rows[0],
       false
     );
   } else {
