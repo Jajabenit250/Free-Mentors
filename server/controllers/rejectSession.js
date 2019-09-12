@@ -31,12 +31,16 @@ const rejectSession = async (req, res) => {
       newStatus,
       id,
     ]);
+    const sessionRejected = await client.query(
+    `SELECT * FROM sessions WHERE id=$1 AND mentorId=$2`,
+    [id, req.user.id,]
+  );
       response.response(
         res,
         200,
         200,
         'Successsfully accepted',
-        sessionStatus.rows[0]
+        sessionRejected.rows[0]
       );
     } else {
       response.response(

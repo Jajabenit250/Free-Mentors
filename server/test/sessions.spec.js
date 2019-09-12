@@ -28,8 +28,7 @@ describe('POST /', () => {
     const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
     const session = {
       mentorId: '1',
-      question: 'Inspire me to be great in everything i do',
-      menteeEmail: 'niyeric11@gmail.com'
+      question: 'Inspire me to be great in everything i do'
     };
 
     chai
@@ -62,7 +61,6 @@ describe('POST /', () => {
     const session = {
       mentorId: '6',
       menteeId: '7',
-      menteeEmail: 'niyeric11@gmail.com',
       question: ''
     };
 

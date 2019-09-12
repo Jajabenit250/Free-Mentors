@@ -40,7 +40,7 @@ const requestSession = async (req, res) => {
       true
     );
   } else {
-    const { mentorId, question } = req.body;
+    const { mentorId } = req.body;
     const mentorPro = await client.query(
       `SELECT * FROM users WHERE id=$1 AND role='mentor'`,
       [mentorId,]
