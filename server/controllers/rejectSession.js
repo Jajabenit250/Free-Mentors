@@ -26,7 +26,6 @@ const rejectSession = async (req, res) => {
       `SELECT * FROM sessions WHERE status='pending'`
     );
     if (sessionStatus.rows.length > 0) {
-    const { status } = sessionStatus.rows[0];
     const newStatus = 'rejected';
     const updateStatus = client.query('UPDATE sessions SET status=$1 where id = $2', [
       newStatus,
