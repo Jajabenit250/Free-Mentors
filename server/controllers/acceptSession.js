@@ -26,18 +26,21 @@ const acceptSession = async (req, res) => {
       `SELECT * FROM sessions WHERE status='pending'`
     );
     if (sessionStatus.rows.length > 0) {
-    const { status } = sessionStatus.rows[0];
     const newStatus = 'accepted';
     const updateStatus = client.query('UPDATE sessions SET status=$1 where id = $2', [
       newStatus,
       id,
     ]);
+      const sessionAccepted = await client.query(
+        `SELECT * FROM sessions WHERE id=$1 AND mentorId=$2`,
+        [id, req.user.id,]
+      );
       response.response(
         res,
         200,
         200,
         'Successsfully accepted',
-        sessionStatus.rows[0]
+        sessionAccepted.rows[0]
       );
     } else {
       response.response(
@@ -45,7 +48,7 @@ const acceptSession = async (req, res) => {
         404,
         404,
         'action already taken',
-        sessionStatus.rows
+        sessionStatus.rows[0]
       );
     }
   } else {

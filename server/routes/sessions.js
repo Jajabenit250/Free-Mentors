@@ -21,9 +21,7 @@ router.patch(
   rejectSession.rejectSession
 );
 router.get('/sessions', [authChecker.auth, menteeChecker.menteeChecker], allUserSession.allSessions);
-router.post('/sessions/:id/review', (req, res) => {
-  return res.send('Review a mentor after a mentorship session');
-});
+router.post('/sessions/:id/review', [authChecker.auth, menteeChecker.menteeChecker], reviewSession.reviewSession);
 router.delete('/sessions/:id/review', (req, res) => {
   return res.send(
     'Admin can delete mentorship session review deemed inappropriate'

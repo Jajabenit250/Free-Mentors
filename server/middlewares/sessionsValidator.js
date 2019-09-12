@@ -8,12 +8,7 @@ const sessionsValidator = user => {
       .required(),
     question: Joi.string()
       .max(50)
-      .required(),
-    menteeEmail: Joi.string()
-      .min(5)
-      .max(250)
       .required()
-      .email()
   };
 
   return Joi.validate(user, schema);
