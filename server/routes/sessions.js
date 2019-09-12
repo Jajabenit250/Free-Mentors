@@ -1,18 +1,20 @@
 import { Router } from 'express';
-import sessions from '../controllers/sessions';
+import createSession from '../controllers/createSession';
+import acceptSession from '../controllers/acceptSession';
+import rejectSession from '../controllers/rejectSession';
 import authChecker from '../middlewares/authChecker';
 import mentorChecker from '../middlewares/mentorChecker';
 const router = Router();
-router.post('/sessions', [authChecker.auth], sessions.requestSession);
+router.post('/sessions', [authChecker.auth], createSession.requestSession);
 router.patch(
   '/sessions/:id/accept',
   [authChecker.auth, mentorChecker.mentorChecker],
-  sessions.acceptSession
+  acceptSession.acceptSession
 );
 router.patch(
   '/sessions/:id/reject',
   [authChecker.auth, mentorChecker.mentorChecker],
-  sessions.rejectSession
+  rejectSession.rejectSession
 );
 router.get('/sessions', (req, res) => {
   return res.send('all mentorship session requests');
