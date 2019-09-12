@@ -13,4 +13,15 @@ CREATE TABLE
                 occupation TEXT NOT NULL,
                 bio TEXT NOT NULL,
                 role TEXT NOT NULL,
-                isAdmin BOOLEAN DEFAULT false);`;
+                isAdmin BOOLEAN DEFAULT false);
+CREATE TABLE
+            sessions(
+                id SERIAL PRIMARY KEY,
+                mentorId TEXT NOT NULL,
+                menteeId TEXT NOT NULL,
+                questions TEXT,
+                menteeEmail TEXT NOT NULL,
+                status TEXT DEFAULT 'pending',
+                score TEXT DEFAULT 'no review yet',
+                menteeFullname TEXT DEFAULT '',
+                remark TEXT DEFAULT '');`;
