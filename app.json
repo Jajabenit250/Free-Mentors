@@ -198,7 +198,7 @@
     "/sessions/{id}/review": {
       "delete": {
         "tags": [""],
-        "summary": "Admin delete a r",
+        "summary": "Admin delete a Review",
         "description": "",
         "produces": ["application/json"],
         "parameters": [
@@ -211,7 +211,7 @@
           },
           {
             "in": "path",
-            "name": "sessionId",
+            "name": "id",
             "description": "Delete a review"
           }
         ],
@@ -263,7 +263,7 @@
       "post": {
         "tags": ["user"],
         "summary": "Sign in a user",
-        "description": "This is where you can signi in a user",
+        "description": "This is where you can signIn in a user",
         "operationId": "createUser",
         "produces": ["application/json"],
         "parameters": [
@@ -442,13 +442,13 @@
     }
   },
   "definitions": {
-    "Signup": {
+    "signup": {
       "type": "object",
       "properties": {
-        "first_name": {
+        "firstName": {
           "type": "string"
         },
-        "last_name": {
+        "lastName": {
           "type": "string"
         },
         "email": {
@@ -457,24 +457,27 @@
         "password": {
           "type": "string"
         },
-        "address": {
-          "type": "string"
-        },
-        "bio": {
-          "type": "string"
+        "phoneNumber": {
+          "type": "integer"
         },
         "occupation": {
           "type": "string"
         },
         "expertise": {
           "type": "string"
+        },
+        "bio": {
+          "type": "string"
+        },
+        "birthdate": {
+          "type": "string"
         }
       },
       "xml": {
-        "name": "Order"
+        "name": "User Signup"
       }
     },
-    "Signin": {
+    "signin": {
       "type": "object",
       "properties": {
         "email": {
@@ -485,29 +488,32 @@
         }
       },
       "xml": {
-        "name": "User"
+        "name": "User SignIn"
       }
     },
-    "Session": {
+    "sessions": {
       "type": "object",
       "properties": {
         "mentorId": {
           "type": "integer"
         },
-        "questions": {
+        "question": {
           "type": "string"
         }
+      },
+      "xml": {
+        "name": "Session"
       }
     },
-    "Review": {
+    "mentors": {
       "type": "object",
       "properties": {
-        "score": {
+        "id": {
           "type": "integer"
-        },
-        "remark": {
-          "type": "string"
         }
+      },
+      "xml": {
+        "name": "Mentor"
       }
     }
   }
