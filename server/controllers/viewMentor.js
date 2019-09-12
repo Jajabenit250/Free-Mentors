@@ -19,6 +19,8 @@ client.connect();
 
 const profileMentor = async (req, res) => {
   const { id } = req.params;
+  if(isNaN(id)){
+       response.response(res, 405, 405, 'Id must be an Integer');}
   let mentorProfile = await client.query(
     `SELECT * FROM users WHERE id=$1 AND role='mentor'`,
     [id,]

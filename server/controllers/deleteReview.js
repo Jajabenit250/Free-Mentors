@@ -17,6 +17,8 @@ client.connect();
 const delReviewSession = async (req, res) => {
   // create logic to check if admin and then check session review remark if pending delete review update remark to deleted
   const { id } = req.params;
+  if(isNaN(id)){
+       response.response(res, 405, 405, 'Id must be an Integer');}
   const checkSession = await client.query(
     `SELECT * FROM sessions WHERE id=$1 AND remark='pending'`,
     [id,]

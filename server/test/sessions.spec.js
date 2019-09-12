@@ -239,3 +239,90 @@ describe('PATCH /', () => {
       });
   });
 });
+describe('get Sessions /', () => {
+  it('It should get a status of 200 when the user is mentee where he/she can view all the sessions request ', done => {
+    const Signed = {
+      id: 6,
+      email: 'newuser@gmail.com',
+      firstName: 'Niyonsenga',
+      lastName: 'Eric',
+      birthdate: '555211',
+      occupation: 'student',
+      expertise: 'ehjkk,',
+      bio: 'akkkk',
+      phoneNumber: '0789769787',
+      address: 'Kacyiru',
+      role: 'mentee',
+      isAdmin: true
+    };
+    const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
+    chai
+      .request(app)
+      .get('/api/v1/sessions')
+      .set('token', Token)
+      .send()
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+});
+describe('POST Review /', () => {
+  it('New review, it should return 201', done => {
+    const Signed = {
+      id: 6,
+      email: 'newuser@gmail.com',
+      firstName: 'Niyonsenga',
+      lastName: 'Eric',
+      birthdate: '555211',
+      occupation: 'student',
+      expertise: 'ehjkk,',
+      bio: 'akkkk',
+      phoneNumber: '0789769787',
+      address: 'Kacyiru',
+      role: 'mentee',
+      isAdmin: true
+    };
+    const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
+    const review = {
+      score: '4'
+    };
+
+    chai
+      .request(app)
+      .post('/api/v1/sessions/3/review')
+      .set('token', Token)
+      .send(review)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(201);
+        done();
+      });
+  });
+});
+describe('delete A Review /', () => {
+  it('it should return 200 the admin delete Review and operation was successful', done => {
+    const Signed = {
+      id: 6,
+      email: 'newuser@gmail.com',
+      firstName: 'Niyonsenga',
+      lastName: 'Eric',
+      birthdate: '555211',
+      occupation: 'student',
+      expertise: 'ehjkk,',
+      bio: 'akkkk',
+      phoneNumber: '0789769787',
+      address: 'Kacyiru',
+      role: 'mentee',
+      isAdmin: true
+    };
+    const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
+    chai
+      .request(app)
+      .delete('/api/v1/sessions/3/review')
+      .set('token', Token)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+});

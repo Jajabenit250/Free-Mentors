@@ -19,6 +19,8 @@ client.connect();
 // eslint-disable-next-line
 const userTomentor = async (req, res) => {
   const { id } = req.params;
+  if(isNaN(id)){
+       response.response(res, 405, 405, 'Id must be an Integer');}
   const userId = await client.query('SELECT * FROM users WHERE id=$1', [id,]);
   if (userId.rows.length > 0) {
     const { role } = userId.rows[0];

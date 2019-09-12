@@ -17,6 +17,8 @@ const client = new Client({
 client.connect();
 const reviewSession = async (req, res) => {
   const { id } = req.params;
+  if(isNaN(id)){
+       response.response(res, 405, 405, 'Id must be an Integer');}
   const checkSession = await client.query(
     `SELECT * FROM sessions WHERE id=$1 AND menteeId=$2`,
     [id, req.user.id,]
@@ -39,7 +41,7 @@ const reviewSession = async (req, res) => {
     `SELECT * FROM sessions WHERE id=$1 AND menteeId=$2`,
     [id, req.user.id,]
   );
-    response.response(res, 200, 200, 'User Add review to a session', updatedSession.rows[0]);
+    response.response(res, 201, 201, 'User Add review to a session', updatedSession.rows[0]);
   }
   else {
     response.response(res, 404, 404, 'No Session found', true);

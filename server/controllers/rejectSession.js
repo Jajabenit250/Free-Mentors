@@ -17,6 +17,8 @@ client.connect();
 
 const rejectSession = async (req, res) => {
   const { id } = req.params;
+  if(isNaN(id)){
+       response.response(res, 405, 405, 'Id must be an Integer');}
   const session = await client.query(
     `SELECT * FROM sessions WHERE id=$1 AND mentorId=$2`,
     [id, req.user.id,]
