@@ -37,7 +37,7 @@ const profileMentor = async (req, res) => {
   const { id } = req.params;
   let mentorProfile = await client.query(
     `SELECT * FROM users WHERE id=$1 AND role='mentor'`,
-    [id]
+    [id,]
   );
   if (mentorProfile.rows.length > 0) {
     const hideMentorPassword = {

@@ -34,7 +34,7 @@ const signUpUser = async (req, res) => {
     );
 
   let usermail = await client.query('SELECT * FROM users WHERE email=$1 ', [
-    req.body.email.toLowerCase()
+    req.body.email.toLowerCase(),
   ]);
   if (usermail.rows.length > 0) {
     return response.response(
@@ -83,7 +83,7 @@ const signUpUser = async (req, res) => {
         if (recordUser) {
           let getId = await client.query(
             'SELECT * FROM users WHERE email=$1 ',
-            [req.body.email.toLowerCase()]
+            [req.body.email.toLowerCase(),]
           );
           const toBeSigned = {
             id: getId.rows[0].id,
@@ -142,7 +142,7 @@ const signInUser = async (req, res) => {
       true
     );
   let emailCheck = await client.query('SELECT * FROM users WHERE email=$1', [
-    req.body.email.toLowerCase()
+    req.body.email.toLowerCase(),
   ]);
 
   if (emailCheck.rows.length > 0) {
@@ -152,7 +152,9 @@ const signInUser = async (req, res) => {
           id: emailCheck.rows[0].id,
           isAdmin: emailCheck.rows[0].isadmin,
           role: emailCheck.rows[0].role,
-          email: emailCheck.rows[0].email
+          email: emailCheck.rows[0].email,
+          firstName: emailCheck.rows[0].firstname,
+          lastName: emailCheck.rows[0].lastname
         },
         process.env.JWT
       );
@@ -210,20 +212,20 @@ const signInUser = async (req, res) => {
 };
 const userTomentor = async (req, res) => {
   const { id } = req.params;
-  const userId = await client.query('SELECT * FROM users WHERE id=$1', [id]);
+  const userId = await client.query('SELECT * FROM users WHERE id=$1', [id,]);
   if (userId.rows.length > 0) {
     const { role } = userId.rows[0];
     const newrole = 'mentor';
     const updateRole = client.query('UPDATE users SET role=$1 where id = $2', [
       newrole,
-      id
+      id,
     ]);
     return response.response(
       res,
       200,
       200,
       'User account changed to mentor',
-      'successfully changed to mentor',
+      userId.rows[0],
       false
     );
   } else {

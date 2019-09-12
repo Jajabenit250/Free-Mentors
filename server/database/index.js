@@ -11,7 +11,8 @@ export const createTables = () => {
   const dataForTesting3 = `INSERT INTO users(email, firstName, lastName, password, birthdate, occupation, expertise, bio, phoneNumber, address, role, isAdmin) VALUES('jeezy@gmail.com','Eric', 'Jeezy', '$2b$10$hwkOJznThaAoSN3KkntBFO7/BazavJU1BYh6lvemXa33/4t0.UAdu','12/5/1996', 'student','software', 'inspire the next', ' +250782314242', 'UMUSAVE', 'mentor', false)`;
   const dataForTesting4 = `INSERT INTO users(email, firstName, lastName, password, birthdate, occupation, expertise, bio, phoneNumber, address, role, isAdmin) VALUES('clau@gmail.com','Robert', 'Muhire', '$2b$10$hwkOJznThaAoSN3KkntBFO7/BazavJU1BYh6lvemXa33/4t0.UAdu','12/5/1996', 'student','software', 'inspire the next', ' +250782314242', 'UMUSAVE', 'mentee', false)`;
   const dataForTesting5 = `INSERT INTO users(email, firstName, lastName, password, birthdate, occupation, expertise, bio, phoneNumber, address, role, isAdmin) VALUES('thiery@gmail.com','Thierry', 'Byiringiro', '$2b$10$hwkOJznThaAoSN3KkntBFO7/BazavJU1BYh6lvemXa33/4t0.UAdu','12/5/1996', 'student','software', 'inspire the next', ' +250782314242', 'UMUSAVE', 'mentor', false)`;
-
+  const dataForSession1 = `INSERT INTO sessions(mentorId, menteeId, questions, menteeEmail, status, score, menteeFullname, remark) VALUES ('1','2','Inspire me to be great','jaja@gmail.com','pending', 'no review yet', '', '')`;
+  const dataForSession2 = `INSERT INTO sessions(mentorId, menteeId, questions, menteeEmail, status, score, menteeFullname, remark) VALUES ('1','4','Inspire me to be great','jaja@gmail.com','pending', 'no review yet', '', '')`;
   Client.query(tables)
     .then()
     .catch();
@@ -28,6 +29,12 @@ export const createTables = () => {
     .then()
     .catch();
   Client.query(dataForTesting5)
+    .then()
+    .catch();
+  Client.query(dataForSession1)
+    .then()
+    .catch();
+  Client.query(dataForSession2)
     .then(() => {
       Client.end();
     })

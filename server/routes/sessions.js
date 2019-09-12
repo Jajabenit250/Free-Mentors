@@ -17,10 +17,10 @@ router.patch(
 router.get('/sessions', (req, res) => {
   return res.send('all mentorship session requests');
 });
-router.post('/sessions/:sessionId/review', (req, res) => {
+router.post('/sessions/:id/review', (req, res) => {
   return res.send('Review a mentor after a mentorship session');
 });
-router.delete('/sessions/:sessionId/review', (req, res) => {
+router.delete('/sessions/:id/review', (req, res) => {
   return res.send(
     'Admin can delete mentorship session review deemed inappropriate'
   );

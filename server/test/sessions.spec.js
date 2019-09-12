@@ -80,8 +80,8 @@ describe('POST /', () => {
 describe('PATCH /', () => {
   it('It should accept session if mentor ', done => {
     const Signed = {
-      id: 6,
-      email: 'newuser@gmail.com',
+      id: 1,
+      email: 'byusa@gmail.com',
       firstName: 'Niyonsenga',
       lastName: 'Eric',
       birthdate: '555211',
@@ -106,8 +106,8 @@ describe('PATCH /', () => {
   });
   it('It should return error if session not found', done => {
     const Signed = {
-      id: 6,
-      email: 'newuser2@gmail.com',
+      id: 1,
+      email: 'byusa@gmail.com',
       firstName: 'Havugimana',
       lastName: 'Benit',
       birthdate: '555211',
@@ -133,8 +133,8 @@ describe('PATCH /', () => {
 
   it('It should return 401 if you are not mentor ', done => {
     const Signed = {
-      id: 1,
-      email: 'byusa@gmail.com',
+      id: 4,
+      email: 'clau@gmail.com',
       firstName: 'BYUSA',
       lastName: 'PRINCE DACY',
       birthdate: '555211',
@@ -162,8 +162,8 @@ describe('PATCH /', () => {
 describe('PATCH /', () => {
   it('It should reject session if mentor ', done => {
     const Signed = {
-      id: 6,
-      email: 'newuser4@gmail.com',
+      id: 1,
+      email: 'byusa@gmail.com',
       firstName: 'Niyonsenga',
       lastName: 'Eric',
       birthdate: '555211',
@@ -178,7 +178,7 @@ describe('PATCH /', () => {
     const Token = jwt.sign(Signed, process.env.JWT, { expiresIn: '24h' });
     chai
       .request(app)
-      .patch('/api/v1/sessions/1/reject')
+      .patch('/api/v1/sessions/2/reject')
       .set('token', Token)
       .send()
       .end((err, res) => {
@@ -188,8 +188,8 @@ describe('PATCH /', () => {
   });
   it('It should return error if session not found', done => {
     const Signed = {
-      id: 6,
-      email: 'newuser2@gmail.com',
+      id: 1,
+      email: 'byusa@gmail.com',
       firstName: 'Havugimana',
       lastName: 'Benit',
       birthdate: '555211',
@@ -215,8 +215,8 @@ describe('PATCH /', () => {
 
   it('It should return 401 if you are not mentor ', done => {
     const Signed = {
-      id: 1,
-      email: 'byusa@gmail.com',
+      id: 4,
+      email: 'clau@gmail.com',
       firstName: 'BYUSA',
       lastName: 'PRINCE DACY',
       birthdate: '555211',
