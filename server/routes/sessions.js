@@ -8,6 +8,7 @@ import deleteReview from '../controllers/deleteReview';
 import authChecker from '../middlewares/authChecker';
 import mentorChecker from '../middlewares/mentorChecker';
 import menteeChecker from '../middlewares/menteeChecker';
+import adminChecker from '../middlewares/adminChecker';
 const router = Router();
 router.post('/sessions', [authChecker.auth], createSession.requestSession);
 router.patch(
@@ -22,9 +23,5 @@ router.patch(
 );
 router.get('/sessions', [authChecker.auth, menteeChecker.menteeChecker], allUserSession.allSessions);
 router.post('/sessions/:id/review', [authChecker.auth, menteeChecker.menteeChecker], reviewSession.reviewSession);
-router.delete('/sessions/:id/review', (req, res) => {
-  return res.send(
-    'Admin can delete mentorship session review deemed inappropriate'
-  );
-});
+router.delete('/sessions/:id/review', [authChecker.auth, adminChecker.adminChecker], deleteReview.delReviewSession);
 export default router;
