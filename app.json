@@ -37,80 +37,238 @@
   "paths": {
     "/auth/signup": {
       "post": {
-        "tags": ["user"],
-        "summary": "Create user",
-        "description": "This endpoint create a user",
-        "operationId": "",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "tags": ["User"],
+        "summary": "Create user account",
+        "description": "Register a user before using the system",
+        "operationId": "signup",
+        "consumes": ["application/json", "application/xml"],
+        "produces": ["application/xml", "application/json"],
         "parameters": [
           {
             "in": "body",
-            "name": "Signup",
-            "description": "Required fields to create a user",
+            "name": "body",
+            "description": "User object that's needed to create new account",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Signup"
+              "$ref": "#/definitions/signup"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "User created successfully"
+            "description": "Account Created Successfully"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "409": {
-            "description": "Email already exists"
+          "404": {
+            "description": "User already exist"
           }
-        },
-        "security": [
+        }
+      }
+    },
+    "/auth/signin": {
+      "post": {
+        "tags": ["User"],
+        "summary": "signin user",
+        "description": "",
+        "operationId": "signin",
+        "consumes": ["application/json", "application/xml"],
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
           {
-            "petstore_auth": ["write:pets", "read:pets"]
+            "in": "body",
+            "name": "body",
+            "description": "User object that's needed to login Into account",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/signin"
+            }
           }
-        ]
+        ],
+        "responses": {
+          "201": {
+            "description": "User Succesfully Login"
+          },
+          "404": {
+            "description": "Invalid Credentials"
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Sessions"],
+        "summary": "User can request mentorship session",
+        "description": "",
+        "operationId": "create-session",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string",
+            "description": "The value to provide in the  header of API request"
+          },
+          {
+            "name": "Session details",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sessions"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sessions created successfully"
+          },
+          "401": {
+            "description": "session already exist"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Sessions"],
+        "summary": "users can view all sessions",
+        "description": "",
+        "operationId": "get-sessions",
+        "consumes": ["application/json", "application/xml"],
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "type": "string",
+            "description": "The value to provide in the  header of API request",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All sessions"
+          },
+          "404": {
+            "description": "User not allowed to perform action"
+          }
+        }
       }
     },
     "/sessions/{id}/reject": {
       "patch": {
         "tags": ["Sessions"],
-        "summary": "Mentor reject mentorship session request",
-        "description": "",
-        "produces": ["application/json"],
+        "summary": "Mentor can reject a session",
+        "description": "Mentor is only allowed to reject session with given ID",
         "parameters": [
           {
+            "name": "token",
             "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
+            "description": "The user token",
+            "required": true
           },
           {
-            "in": "path",
             "name": "sessionId",
-            "description": "Change User to mentor"
+            "in": "path",
+            "description": "Session Id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200: session successfully rejected"
+          },
+          "400": {
+            "description": "400 Error"
+          },
+          "401": {
+            "description": "401: authentication error"
+          }
+        }
+      }
+    },
+    "/sessions/{id}/accept": {
+      "patch": {
+        "tags": ["Sessions"],
+        "summary": "Mentor can accept a session",
+        "description": "Mentor is only allowed to accept session with given ID",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "The user token",
+            "required": true
+          },
+          {
+            "name": "sessionId",
+            "in": "path",
+            "description": "Session Id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "200: session successfully accepted"
+          },
+          "400": {
+            "description": "400 Error"
+          },
+          "401": {
+            "description": "401: authentication error"
+          }
+        }
+      }
+    },
+    "/mentors": {
+      "get": {
+        "tags": ["Mentors"],
+        "summary": "View mentors",
+        "description": "User can view all mentors.",
+        "operationId": "view-mentors",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "",
+            "in": "",
+            "type": "",
+            "description": "The value to provide in the  header of API request"
           }
         ],
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "200": {
+            "description": "200: User view all mentors list"
+          }
+        }
+      }
+    },
+    "/mentors/{id}": {
+      "get": {
+        "tags": ["Mentors"],
+        "summary": "View specific Mentor",
+        "description": "",
+        "operationId": "view-specific-mentor",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "",
+            "in": "",
+            "type": "",
+            "description": "The value to provide in the  header of API request"
           },
-          "401": {
-            "description": "This request can not be rejected because was accepted before"
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200: User view mentor profile"
           },
           "404": {
-            "description": "The given request session Id does not exists"
-          },
-          "409": {
-            "description": "This request was made before"
+            "description": "404: No mentor found with that Id"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
+        }
       }
     },
     "/sessions/{id}/review": {
@@ -164,38 +322,7 @@
             "description": "Forbidden"
           }
         }
-      }
-    },
-    "/users": {
-      "get": {
-        "tags": [""],
-        "summary": "View all users",
-        "description": "",
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
-      }
-    },
-    "/sessions/{id}/review": {
+      },
       "delete": {
         "tags": [""],
         "summary": "Admin delete a Review",
@@ -224,202 +351,6 @@
           },
           "404": {
             "description": "The review ID not found"
-          }
-        }
-      }
-    },
-    "/sessions": {
-      "get": {
-        "tags": [""],
-        "summary": "View mentorship session request",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation"
-          },
-          "400": {
-            "description": "Invalid ID supplied"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Request not found"
-          }
-        }
-      }
-    },
-    "/auth/signin": {
-      "post": {
-        "tags": ["user"],
-        "summary": "Sign in a user",
-        "description": "This is where you can signIn in a user",
-        "operationId": "createUser",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Created user object",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Signin"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "No User found"
-          },
-          "200": {
-            "description": "User is successfully sign in"
-          },
-          "401": {
-            "description": "Authentication failed, Invalid Email or Password"
-          }
-        }
-      }
-    },
-    "/user/{id}": {
-      "patch": {
-        "tags": ["user"],
-        "summary": "Admin change user to mentor",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "userId",
-            "description": "Change User to mentor",
-            "required": true
-          }
-        ],
-        "responses": {
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "User Id not found"
-          },
-          "409": {
-            "description": "User already changed to mentor"
-          },
-          "200": {
-            "description": "User account changed to mentor"
-          }
-        }
-      }
-    },
-    "/mentors": {
-      "get": {
-        "tags": ["user"],
-        "summary": "View all mentors",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "403": {
-            "description": "Forbidden"
-          },
-          "200": {
-            "description": "View Mentors"
-          }
-        }
-      }
-    },
-    "/mentors/{id}": {
-      "get": {
-        "tags": ["user"],
-        "summary": "View a specific mentor",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mentorId",
-            "description": "View a specific mentor"
-          }
-        ],
-        "responses": {
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Mentor with the given ID does not exists"
-          },
-          "400": {
-            "description": "The Given ID is not for a mentor"
-          },
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/sessions/{id}/accept": {
-      "patch": {
-        "tags": ["user"],
-        "summary": "Mentor accept mentorship request",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "sessionId",
-            "description": "Change User to mentor"
-          }
-        ],
-        "responses": {
-          "403": {
-            "description": "Forbidden"
-          },
-          "401": {
-            "description": "This request can not be accepted because was rejected before"
-          },
-          "404": {
-            "description": "The given request session Id does not exists"
-          },
-          "409": {
-            "description": "This request was made before"
           }
         }
       }
